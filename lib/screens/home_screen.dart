@@ -19,13 +19,13 @@ class Home extends StatelessWidget {
         child: Scaffold(
           appBar: AppBar(
             bottom: TabBar(
-              onTap: _changeTheme,
+              // onTap: _changeTheme,
               tabs: [
                 Tab(
-                  icon: Icon(FontAwesomeIcons.sun),
+                  icon: Icon(FontAwesomeIcons.star),
                 ),
                 // Tab(
-                //   icon: Icon(FontAwesomeIcons.moon),
+                //   icon: Icon(FontAwesomeIcons.video),
                 // ),
               ],
             ),
@@ -34,6 +34,7 @@ class Home extends StatelessWidget {
           body: TabBarView(
             children: [
               FeedbackForm(),
+              // FeedbackForm(),
             ],
           ),
         ),

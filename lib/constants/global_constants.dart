@@ -1,4 +1,2 @@
-const String sheetId = "1yl9FmfMZdGFQ9RqvgUjQbxncn9Hi6u5RfcdCASYyUgc";
-
 const String feedbackFormURL =
-    "https://script.google.com/macros/s/AKfycby_Kup2eGjxgyxYliH8pXGxla_Cznc9CqJpEGBsg2HFezvmBt5mrJL3y3RskPoNIij_/exec";
+    "https://script.google.com/macros/s/AKfycbzulCa9ooY1so7i7khxqfQeoTk1dpv-9y92NiJy-Kze1Rau_ir1E0-tBLPDTRVgWUoW/exec";

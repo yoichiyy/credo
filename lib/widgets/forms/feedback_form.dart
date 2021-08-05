@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:review_system/constants/string_constants.dart';
 import 'package:review_system/controller/feedback_form_controller.dart';
 import 'package:review_system/models/form_models/feedback_form_model.dart';
 import 'package:get/get.dart';
+import 'package:review_system/widgets/forms/form_buttons.dart';
+import 'package:review_system/widgets/forms/form_fields.dart';
 
 class FeedbackForm extends StatefulWidget {
   FeedbackForm({Key key}) : super(key: key);
@@ -40,41 +43,79 @@ class _FeedbackFormState extends State<FeedbackForm> {
           children: [
             Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                      hintText: "Name",
-                    ),
-                    onSaved: (String value) {
-                      this._data.name = value.trim();
-                    },
-                    validator: (String input) {
-                      if (input.isEmpty) {
-                        return "This is compulsory";
-                      } else {
-                        return null;
-                      }
-                    },
-                  ),
+                customField(
+                  hint: FeedbackFormFieldHintConstants.name,
+                  isMandatory: true,
+                  onSaved: (String value) {
+                    this._data.name = value.trim();
+                  },
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                      hintText: "Email",
-                    ),
-                    onSaved: (String value) {
-                      this._data.email = value.trim();
-                    },
-                    validator: (String input) {
-                      if (input.isEmpty) {
-                        return "This is compulsory";
-                      } else {
-                        return null;
-                      }
-                    },
-                  ),
+                customField(
+                  hint: FeedbackFormFieldHintConstants.emailAddress,
+                  isMandatory: true,
+                  onSaved: (String value) {
+                    this._data.email = value.trim();
+                  },
+                ),
+
+                _buildButtonHeaders(FeedbackFormFieldHintConstants.feeling),
+                //build feeling buttons
+                Wrap(
+                  alignment: WrapAlignment.center,
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  children: List.generate(5, (index) => index)
+                      .map(
+                        (item) => formButtons(
+                          title: FeedbackFormFieldHintConstants.getFeelingTypes(
+                              item),
+                          isSelected: this._data.feeling == item,
+                          onTap: () {
+                            this._data.feeling = item;
+                            setState(() {});
+                          },
+                        ),
+                      )
+                      .toList()
+                      .cast<Widget>(),
+                ),
+                customField(
+                  hint: FeedbackFormFieldHintConstants.focus,
+                  onSaved: (String value) {
+                    this._data.focus = value.trim();
+                  },
+                ),
+                customField(
+                  hint: FeedbackFormFieldHintConstants.knowledge,
+                  onSaved: (String value) {
+                    this._data.knowledge = value.trim();
+                  },
+                ),
+                customField(
+                  hint: FeedbackFormFieldHintConstants.bridging,
+                  onSaved: (String value) {
+                    this._data.bridging = value.trim();
+                  },
+                ),
+                _buildButtonHeaders(FeedbackFormFieldHintConstants.motivation),
+                //build Motivation  buttons
+                Wrap(
+                  alignment: WrapAlignment.center,
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  children: List.generate(11, (index) => index)
+                      .map(
+                        (item) => formButtons(
+                          title:
+                              FeedbackFormFieldHintConstants.getMotivationTypes(
+                                  item),
+                          isSelected: this._data.motivation == item,
+                          onTap: () {
+                            this._data.motivation = item;
+                            setState(() {});
+                          },
+                        ),
+                      )
+                      .toList()
+                      .cast<Widget>(),
                 ),
                 Center(
                   child: TextButton(
@@ -92,6 +133,16 @@ class _FeedbackFormState extends State<FeedbackForm> {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  _buildButtonHeaders(title) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Text(
+        title,
+        textScaleFactor: 0.9,
       ),
     );
   }
