@@ -4,6 +4,7 @@ import 'package:review_system/constants/string_constants.dart';
 import 'package:review_system/constants/theme_constants.dart';
 import 'package:review_system/screens/home_screen.dart';
 
+//form yo system
 void main() => runApp(
       GetMaterialApp(
         title: StringConstants.appName,
