@@ -1,8 +1,29 @@
-class StringConstants {
+class MainStringConstants {
   static final String appName = "Review System";
+}
+
+class HomeStringConstants {
+  static final String appBarTitle = "Review System";
 
   static final String homeTabMorning = "Morning Videos";
   static final String homeTabEvening = "Evening Videos";
+}
+
+class TableOfContentsStringConstants {
+  static final String appBarTitle = "Table Of Contents";
+  static getContentTitle(index) {
+    switch (index) {
+      case 1:
+        return "First Title";
+        break;
+      case 2:
+        return "Second Title";
+        break;
+      default:
+        return "Anonymous";
+        break;
+    }
+  }
 }
 
 class FeedbackFormFieldHintConstants {

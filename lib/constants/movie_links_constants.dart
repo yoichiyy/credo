@@ -1,24 +1,25 @@
-class MovieLinksChapter1Constants {
-  static final String first = "Review System";
+class MorningVideosLinks {
+  static getVideoLinks(value) {
+    switch (value) {
+      case 1:
+        return "https://youtu.be/qz1pn-diGkU";
+        break;
+      case 2:
+        return "https://youtu.be/26H0T4oXtxg";
+        break;
+    }
+  }
 }
 
-class MovieLinksChapter2Constants {
-  static final String first = "Review System";
+class EveingVideosLinks {
+  static getVideoLinks(value) {
+    switch (value) {
+      case 1:
+        return "https://youtu.be/26H0T4oXtxg";
+        break;
+      case 2:
+        return "https://youtu.be/qz1pn-diGkU";
+        break;
+    }
+  }
 }
-
-class MovieLinksChapter3Constants {
-  static final String first = "Review System";
-}
-
-class MovieLinksChapter4Constants {
-  static final String first = "Review System";
-}
-
-class MovieLinksChapter5Constants {
-  static final String first = "Review System";
-}
-
-class MovieLinksChapter6Constants {
-  static final String first = "Review System";
-}
-
