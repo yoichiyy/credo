@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:review_system/constants/global_constants.dart';
@@ -14,6 +15,12 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: DefaultTabController(
@@ -22,7 +29,7 @@ class _HomeState extends State<Home> {
           appBar: AppBar(
             actions: [
               InkWell(
-                onTap: () => Get.to(() => TableOfContents()),
+              onTap: () => Get.to(() => TableOfContents()),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Icon(Icons.menu),
@@ -44,6 +51,7 @@ class _HomeState extends State<Home> {
           body: ValueListenableBuilder(
             valueListenable: videoIndex,
             builder: (BuildContext context, dynamic value, Widget child) {
+              print(value);
               return TabBarView(
                 children: [
                   MorningSection(value),

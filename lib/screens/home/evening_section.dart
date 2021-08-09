@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:review_system/constants/movie_links_constants.dart';
 import 'package:review_system/screens/home/feedback_form.dart';
 import 'package:review_system/screens/home/video_screen.dart';
+import 'package:review_system/widgets/video/video_image_block.dart';
 
 class EveningSection extends StatelessWidget {
   int videoIndex;
@@ -10,8 +11,8 @@ class EveningSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        VideoScreen(
-          videoLink: EveingVideosLinks.getVideoLinks(this.videoIndex),
+        VideoImageBlock(
+          videoUrl: EveingVideosLinks.getVideoLinks(this.videoIndex),
         ),
         Container(
           height: MediaQuery.of(context).size.height / 2,

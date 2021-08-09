@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:get/get.dart';
 
 class VideoScreen extends StatefulWidget {
   String videoLink;
@@ -10,44 +12,26 @@ class VideoScreen extends StatefulWidget {
 
 class _VideoScreenState extends State<VideoScreen> {
   YoutubePlayerController _youtubePlayerController;
-  PlayerState _playerState;
-  YoutubeMetaData _videoMetaData;
-  bool _isPlayerReady = false;
-
   @override
   void initState() {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeRight]);
     super.initState();
     _youtubePlayerController = YoutubePlayerController(
       initialVideoId: YoutubePlayer.convertUrlToId(widget.videoLink),
       flags: const YoutubePlayerFlags(
         mute: false,
-        autoPlay: false,
+        autoPlay: true,
         disableDragSeek: false,
         loop: false,
         isLive: false,
         forceHD: false,
         enableCaption: true,
       ),
-    )..addListener(listener);
-
-    _videoMetaData = const YoutubeMetaData();
-    _playerState = PlayerState.unknown;
-  }
-
-  void listener() {
-    if (_isPlayerReady &&
-        mounted &&
-        !_youtubePlayerController.value.isFullScreen) {
-      setState(() {
-        _playerState = _youtubePlayerController.value.playerState;
-        _videoMetaData = _youtubePlayerController.metadata;
-      });
-    }
+    );
   }
 
   @override
   void deactivate() {
-    // Pauses video while navigating to next page.
     _youtubePlayerController.pause();
     super.deactivate();
   }
@@ -55,27 +39,51 @@ class _VideoScreenState extends State<VideoScreen> {
   @override
   void dispose() {
     _youtubePlayerController.dispose();
-
     super.dispose();
+  }
+
+  Future<bool> _handleBack() async {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+    return true;
   }
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          YoutubePlayer(
-            controller: _youtubePlayerController,
-            showVideoProgressIndicator: true,
-            progressColors: ProgressBarColors(
-              playedColor: Colors.amber,
-              handleColor: Colors.amberAccent,
-            ),
-            onReady: () {
-              _isPlayerReady = true;
-            },
+    return WillPopScope(
+      onWillPop: _handleBack,
+      child: Scaffold(
+        body: SafeArea(
+          child: Stack(
+            alignment: Alignment.topLeft,
+            children: [
+              YoutubePlayerBuilder(
+                player: YoutubePlayer(
+                  controller: _youtubePlayerController,
+                ),
+                builder: (context, player) {
+                  return Column(
+                    children: [
+                      player,
+                    ],
+                  );
+                },
+              ),
+              InkWell(
+                onTap: () {
+                  _handleBack();
+                  Get.back();
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Icon(
+                    Icons.arrow_back_ios,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
