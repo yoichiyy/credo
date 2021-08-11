@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:review_system/constants/global_constants.dart';
 import 'package:review_system/constants/string_constants.dart';
 import 'package:get/get.dart';
+import 'package:review_system/widgets/general_widgets.dart';
 
 class TableOfContents extends StatelessWidget {
   List _pages = List.generate(24, (index) => index + 1);
@@ -9,11 +10,8 @@ class TableOfContents extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          TableOfContentsStringConstants.appBarTitle,
-        ),
-      ),
+      appBar:
+          GeneralWidgets().appBar(TableOfContentsStringConstants.appBarTitle),
       body: ListView.builder(
         itemCount: _pages.length,
         shrinkWrap: true,
