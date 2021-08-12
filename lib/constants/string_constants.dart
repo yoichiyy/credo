@@ -61,3 +61,18 @@ class FeedbackFormFieldHintConstants {
     return _options[value];
   }
 }
+
+class LoginFormStringConstants {
+  static final String appBarTitle = "Login / Register";
+  static final String emailAddress = "メールアドレス";
+  static final String password = "パスワード";
+}
+
+class SettingsPageStringConstants {
+  static final String appBarTitle = "Settings";
+  static final String loginButtonTitle = "Login using email id";
+}
+
+class CommonStringConstants {
+  static final String save = "Save";
+}
