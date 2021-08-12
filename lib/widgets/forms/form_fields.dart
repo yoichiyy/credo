@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
-Widget customField({onSaved, hint, isMandatory}) {
+Widget customField({
+  onSaved,
+  hint,
+  isMandatory,
+  isHidden,
+  int minLength,
+}) {
   return Padding(
     padding: const EdgeInsets.all(8.0),
     child: TextFormField(
@@ -10,15 +16,20 @@ Widget customField({onSaved, hint, isMandatory}) {
         hintMaxLines: 2,
       ),
       onSaved: onSaved,
+      obscureText: isHidden ?? false,
       validator: (String input) {
-        if (isMandatory ?? false) {
-          if (input.isEmpty) {
-            return "This is compulsory";
+        if ((minLength ?? 0) <= input.length) {
+          if (isMandatory ?? false) {
+            if (input.isEmpty) {
+              return "This is compulsory";
+            } else {
+              return null;
+            }
           } else {
             return null;
           }
         } else {
-          return null;
+          return "There should be minimum $minLength characters";
         }
       },
     ),

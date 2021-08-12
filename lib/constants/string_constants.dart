@@ -66,6 +66,7 @@ class LoginFormStringConstants {
   static final String appBarTitle = "Login / Register";
   static final String emailAddress = "メールアドレス";
   static final String password = "パスワード";
+  static final String buttonTitle = "Login / Register";
 }
 
 class SettingsPageStringConstants {

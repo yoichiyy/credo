@@ -11,6 +11,5 @@ void main() => runApp(
         theme: Themes.light,
         darkTheme: Themes.dark,
         home: Home(),
-
       ),
     );

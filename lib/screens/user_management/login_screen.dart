@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:review_system/constants/string_constants.dart';
 import 'package:review_system/models/form_models/login_form_model.dart';
 import 'package:review_system/controller/login_form_controller.dart';
-
 import 'package:review_system/widgets/forms/form_fields.dart';
 import 'package:review_system/widgets/general_widgets.dart';
+import 'package:get/get.dart';
 
 class LoginForm extends StatefulWidget {
   LoginForm({Key key}) : super(key: key);
@@ -24,12 +24,9 @@ class _LoginFormState extends State<LoginForm> {
       _isLoading.value = true;
       //!integerate firebase
       bool result = await LoginFormController().loginUser(_data);
-      // if (result) {
-      //   Get.snackbar("Feedback: ", "It is collected successfully");
-      //   _formKey.currentState.reset();
-      // } else {
-      //   Get.snackbar("Feedback: ", "Some error happened");
-      // }
+      if (result) {
+        _formKey.currentState.reset();
+      }
       _isLoading.value = false;
     }
   }
@@ -56,13 +53,15 @@ class _LoginFormState extends State<LoginForm> {
                   customField(
                     hint: LoginFormStringConstants.password,
                     isMandatory: true,
+                    minLength: 6,
+                    isHidden: true,
                     onSaved: (String value) {
                       this._data.password = value.trim();
                     },
                   ),
                   Center(
                     child: TextButton(
-                      child: Text(CommonStringConstants.save),
+                      child: Text(LoginFormStringConstants.buttonTitle),
                       onPressed: _handleFormSave,
                     ),
                   )
