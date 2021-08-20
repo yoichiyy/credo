@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.review_system">
+    package="com.harada.credo">
+   <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="review_system"
+        android:label="Credo 365+1"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

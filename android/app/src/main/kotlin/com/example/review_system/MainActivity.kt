@@ -1,4 +1,4 @@
-package com.example.review_system
+package com.harada.credo
 
 import io.flutter.embedding.android.FlutterActivity
 
