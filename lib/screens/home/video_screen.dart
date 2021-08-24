@@ -14,7 +14,7 @@ class _VideoScreenState extends State<VideoScreen> {
   YoutubePlayerController _youtubePlayerController;
   @override
   void initState() {
-    SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeRight]);
+    // SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeRight]);
     super.initState();
     _youtubePlayerController = YoutubePlayerController(
       initialVideoId: YoutubePlayer.convertUrlToId(widget.videoLink),

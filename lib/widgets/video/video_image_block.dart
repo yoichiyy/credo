@@ -23,9 +23,8 @@ class VideoImageBlock extends StatelessWidget {
       },
       child: CachedNetworkImage(
         imageUrl: "https://img.youtube.com/vi/$_imageURL/0.jpg",
-        fit: BoxFit.cover,
+        fit: BoxFit.fill,
         width: double.infinity,
-        height: 200,
       ),
     );
   }

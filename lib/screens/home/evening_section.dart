@@ -14,10 +14,12 @@ class EveningSection extends StatelessWidget {
           videoUrl: EveingVideosLinks.getVideoLinks(this.videoIndex),
         ),
         Container(
-          height: MediaQuery.of(context).size.height / 2,
+          height: MediaQuery.of(context).size.height / 2.2,
           child: ListView(
             shrinkWrap: true,
-            children: [FeedbackForm()],
+            children: [
+              FeedbackForm(),
+            ],
           ),
         ),
       ],

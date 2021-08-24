@@ -4,6 +4,7 @@ Widget formButtons({
   String title,
   onTap,
   isSelected,
+  Color color,
 }) {
   return Padding(
     padding: const EdgeInsets.all(8.0),
@@ -11,9 +12,10 @@ Widget formButtons({
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
+          color: color ?? Colors.white,
           border: Border.all(
-            width: 1,
-            color: isSelected ? Colors.orange[600] : Colors.grey[300],
+            width: 5,
+            color: isSelected ? Colors.black : Colors.transparent,
           ),
           borderRadius: BorderRadius.circular(10),
         ),
@@ -21,7 +23,11 @@ Widget formButtons({
           padding: const EdgeInsets.all(8.0),
           child: Text(
             title,
-            textScaleFactor: 0.7,
+            textScaleFactor: 1.5,
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.w400,
+            ),
           ),
         ),
       ),

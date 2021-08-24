@@ -12,7 +12,7 @@ Widget customField({
     child: TextFormField(
       decoration: InputDecoration(
         hintText: hint,
-        hintStyle: TextStyle(fontSize: 10),
+        hintStyle: TextStyle(fontSize: 15),
         hintMaxLines: 2,
       ),
       onSaved: onSaved,

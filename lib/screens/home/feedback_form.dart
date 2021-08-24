@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:review_system/constants/color_constants.dart';
 import 'package:review_system/constants/string_constants.dart';
 import 'package:review_system/controller/feedback_form_controller.dart';
 import 'package:review_system/models/form_models/feedback_form_model.dart';
@@ -43,20 +44,20 @@ class _FeedbackFormState extends State<FeedbackForm> {
           children: [
             Column(
               children: [
-                customField(
-                  hint: FeedbackFormFieldHintConstants.name,
-                  isMandatory: true,
-                  onSaved: (String value) {
-                    this._data.name = value.trim();
-                  },
-                ),
-                customField(
-                  hint: FeedbackFormFieldHintConstants.emailAddress,
-                  isMandatory: true,
-                  onSaved: (String value) {
-                    this._data.email = value.trim();
-                  },
-                ),
+                // customField(
+                //   hint: FeedbackFormFieldHintConstants.name,
+                //   isMandatory: true,
+                //   onSaved: (String value) {
+                //     this._data.name = value.trim();
+                //   },
+                // ),
+                // customField(
+                //   hint: FeedbackFormFieldHintConstants.emailAddress,
+                //   isMandatory: true,
+                //   onSaved: (String value) {
+                //     this._data.email = value.trim();
+                //   },
+                // ),
 
                 _buildButtonHeaders(FeedbackFormFieldHintConstants.feeling),
                 //build feeling buttons
@@ -66,6 +67,9 @@ class _FeedbackFormState extends State<FeedbackForm> {
                   children: List.generate(5, (index) => index)
                       .map(
                         (item) => formButtons(
+                          color:
+                              FeedbackFormFieldColorConstants.getFeelingColors(
+                                  item),
                           title: FeedbackFormFieldHintConstants.getFeelingTypes(
                               item),
                           isSelected: this._data.feeling == item,
@@ -104,6 +108,8 @@ class _FeedbackFormState extends State<FeedbackForm> {
                   children: List.generate(11, (index) => index)
                       .map(
                         (item) => formButtons(
+                          color: FeedbackFormFieldColorConstants
+                              .getMotivationColors(item),
                           title:
                               FeedbackFormFieldHintConstants.getMotivationTypes(
                                   item),
@@ -122,6 +128,9 @@ class _FeedbackFormState extends State<FeedbackForm> {
                     child: Text("Save"),
                     onPressed: _handleFormSave,
                   ),
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height / 2,
                 )
               ],
             ),
@@ -142,7 +151,10 @@ class _FeedbackFormState extends State<FeedbackForm> {
       padding: const EdgeInsets.all(8.0),
       child: Text(
         title,
-        textScaleFactor: 0.9,
+        textScaleFactor: 1.2,
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
       ),
     );
   }
