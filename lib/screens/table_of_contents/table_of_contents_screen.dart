@@ -1,34 +1,77 @@
 import 'package:flutter/material.dart';
 import 'package:review_system/constants/global_constants.dart';
-import 'package:review_system/constants/string_constants.dart';
-import 'package:get/get.dart';
-import 'package:review_system/widgets/general_widgets.dart';
+import 'package:review_system/constants/movie_title_constants.dart';
 
-class TableOfContents extends StatelessWidget {
-  List _pages = List.generate(24, (index) => index + 1);
+class TableOfContents extends StatefulWidget {
+  @override
+  _TableOfContentsState createState() => _TableOfContentsState();
+}
 
+class _TableOfContentsState extends State<TableOfContents> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:
-          GeneralWidgets().appBar(TableOfContentsStringConstants.appBarTitle),
       body: ListView.builder(
-        itemCount: _pages.length,
-        shrinkWrap: true,
+        itemCount: MovieTitleConstants().mainIndexes.length,
         itemBuilder: (context, index) {
-          return _buildContent(_pages[index]);
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildMainTitle(index),
+              _buildListViewOfContent(MovieTitleConstants().mainIndexes[index]),
+            ],
+          );
         },
       ),
     );
   }
 
-  _buildContent(index) {
+  _buildMainTitle(index) {
+    return Container(
+      width: double.infinity,
+      color: Colors.brown,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              MovieTitleConstants.getMainTitle(index),
+              style: TextStyle(color: Colors.white),
+              textScaleFactor: 1.3,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Icon(
+              Icons.arrow_drop_down,
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  _buildListViewOfContent(mainIndex) {
+    return ListView.builder(
+      itemCount: MovieTitleConstants().movieIndexes.length,
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
+      itemBuilder: (context, index) {
+        return _buildContent(mainIndex, index);
+      },
+    );
+  }
+
+  _buildContent(mainIndex, index) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: InkWell(
         onTap: () {
           videoIndex.value = index;
-          Get.back();
+          // Get.back();
         },
         child: Container(
           padding: const EdgeInsets.all(8.0),
@@ -41,20 +84,21 @@ class TableOfContents extends StatelessWidget {
             ),
           ),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                index.toString(),
-              ),
-              SizedBox(
-                width: 5,
-              ),
-              Text(
-                TableOfContentsStringConstants.getContentTitle(index),
+                MovieTitleConstants().movieIndexes[index].toString(),
+                textScaleFactor: 1.2,
+                style: TextStyle(fontWeight: FontWeight.bold),
               ),
               Spacer(),
-              Icon(
-                Icons.arrow_forward_ios,
-                size: 15,
+              Container(
+                width: MediaQuery.of(context).size.width * 0.8,
+                child: Text(
+                  MovieTitleConstants.getContentTitle(mainIndex, index),
+                  textScaleFactor: 1.2,
+                ),
               ),
             ],
           ),

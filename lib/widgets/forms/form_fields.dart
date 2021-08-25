@@ -6,6 +6,7 @@ Widget customField({
   isMandatory,
   isHidden,
   int minLength,
+  bool multiline,
 }) {
   return Padding(
     padding: const EdgeInsets.all(8.0),
@@ -15,6 +16,9 @@ Widget customField({
         hintStyle: TextStyle(fontSize: 15),
         hintMaxLines: 2,
       ),
+      maxLines: (multiline ?? false) ? null : 1,
+      keyboardType:
+          (multiline ?? false) ? TextInputType.multiline : TextInputType.text,
       onSaved: onSaved,
       obscureText: isHidden ?? false,
       validator: (String input) {

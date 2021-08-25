@@ -9,23 +9,6 @@ class HomeStringConstants {
   static final String homeTabEvening = "Evening Videos";
 }
 
-class TableOfContentsStringConstants {
-  static final String appBarTitle = "Table Of Contents";
-  static getContentTitle(index) {
-    switch (index) {
-      case 1:
-        return "First Title";
-        break;
-      case 2:
-        return "Second Title";
-        break;
-      default:
-        return "Anonymous";
-        break;
-    }
-  }
-}
-
 class FeedbackFormFieldHintConstants {
   static final String name = "お名前";
   static final String emailAddress = "メールアドレス";
@@ -77,3 +60,4 @@ class SettingsPageStringConstants {
 class CommonStringConstants {
   static final String save = "Save";
 }
+

@@ -83,18 +83,21 @@ class _FeedbackFormState extends State<FeedbackForm> {
                       .cast<Widget>(),
                 ),
                 customField(
+                  multiline: true,
                   hint: FeedbackFormFieldHintConstants.focus,
                   onSaved: (String value) {
                     this._data.focus = value.trim();
                   },
                 ),
                 customField(
+                  multiline: true,
                   hint: FeedbackFormFieldHintConstants.knowledge,
                   onSaved: (String value) {
                     this._data.knowledge = value.trim();
                   },
                 ),
                 customField(
+                  multiline: true,
                   hint: FeedbackFormFieldHintConstants.bridging,
                   onSaved: (String value) {
                     this._data.bridging = value.trim();
@@ -123,10 +126,26 @@ class _FeedbackFormState extends State<FeedbackForm> {
                       .toList()
                       .cast<Widget>(),
                 ),
-                Center(
-                  child: TextButton(
-                    child: Text("Save"),
-                    onPressed: _handleFormSave,
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: InkWell(
+                    onTap: _handleFormSave,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.amber,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      width: double.infinity,
+                      child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            "Save",
+                            textScaleFactor: 1.3,
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
                 SizedBox(

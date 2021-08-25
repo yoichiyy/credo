@@ -25,7 +25,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: DefaultTabController(
-        length: 2,
+        length: 4,
         child: Scaffold(
           appBar: _buildAppbar(),
           body: ValueListenableBuilder(
@@ -36,6 +36,8 @@ class _HomeState extends State<Home> {
                 children: [
                   MorningSection(value),
                   EveningSection(value),
+                  TableOfContents(),
+                  Settings(),
                 ],
               );
             },
@@ -47,33 +49,40 @@ class _HomeState extends State<Home> {
 
   _buildAppbar() {
     return AppBar(
-      actions: [
-        InkWell(
-          onTap: () => Get.to(() => TableOfContents()),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Icon(Icons.menu),
-          ),
-        ),
-        InkWell(
-          onTap: () => Get.to(() => Settings()),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Icon(Icons.settings),
-          ),
-        )
-      ],
-      bottom: TabBar(
+      title: TabBar(
         tabs: [
           Tab(
-            icon: Icon(FontAwesomeIcons.sun),
+            icon: Icon(FontAwesomeIcons.cloudSun),
           ),
           Tab(
-            icon: Icon(FontAwesomeIcons.moon),
+            icon: Icon(FontAwesomeIcons.cloudMoon),
+          ),
+          Tab(
+            icon: Icon(FontAwesomeIcons.bars),
+          ),
+          Tab(
+            icon: Icon(FontAwesomeIcons.cog),
           ),
         ],
       ),
-      title: Text(HomeStringConstants.appBarTitle),
+      // actions: [
+      //   InkWell(
+      //     onTap: () => Get.to(() => TableOfContents()),
+      //     child: Padding(
+      //       padding: const EdgeInsets.all(8.0),
+      //       child: Icon(Icons.menu),
+      //     ),
+      //   ),
+      //   InkWell(
+      //     onTap: () => Get.to(() => Settings()),
+      //     child: Padding(
+      //       padding: const EdgeInsets.all(8.0),
+      //       child: Icon(Icons.settings),
+      //     ),
+      //   )
+      // ],
+      // bottom:
+      // title: Text(HomeStringConstants.appBarTitle),
     );
   }
 }

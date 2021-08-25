@@ -8,19 +8,22 @@ class MorningSection extends StatelessWidget {
   MorningSection(this.videoIndex);
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        VideoImageBlock(
-          videoUrl: MorningVideosLinks.getVideoLinks(this.videoIndex),
-        ),
-        Container(
-          height: MediaQuery.of(context).size.height / 2.2,
-          child: ListView(
-            shrinkWrap: true,
-            children: [FeedbackForm()],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          VideoImageBlock(
+            videoUrl: MorningVideosLinks.getVideoLinks(this.videoIndex),
           ),
-        ),
-      ],
+          Container(
+            height: MediaQuery.of(context).size.height / 2.2,
+            child: ListView(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              children: [FeedbackForm()],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

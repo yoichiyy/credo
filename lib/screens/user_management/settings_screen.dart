@@ -21,7 +21,7 @@ class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: GeneralWidgets().appBar(SettingsPageStringConstants.appBarTitle),
+      // appBar: GeneralWidgets().appBar(SettingsPageStringConstants.appBarTitle),
       body: SingleChildScrollView(
         child: Column(
           children: [
