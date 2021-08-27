@@ -4,8 +4,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:review_system/constants/global_constants.dart';
 import 'package:review_system/constants/string_constants.dart';
-import 'package:review_system/screens/home/evening_section.dart';
-import 'package:review_system/screens/home/morning_section.dart';
+import 'package:review_system/screens/home/evening/evening_section.dart';
+import 'package:review_system/screens/home/morning/morning_section.dart';
 import 'package:review_system/screens/table_of_contents/table_of_contents_screen.dart';
 import 'package:review_system/screens/user_management/settings_screen.dart';
 
@@ -34,8 +34,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
             return TabBarView(
               controller: homePageTabController,
               children: [
-                MorningSection(value),
-                EveningSection(value),
+                MorningSection(value["main"], value['video']),
+                EveningSection(value["main"], value['video']),
                 TableOfContents(),
                 Settings(),
               ],

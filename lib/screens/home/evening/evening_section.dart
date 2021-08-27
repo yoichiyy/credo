@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:review_system/constants/movie_links_constants.dart';
-import 'package:review_system/screens/home/feedback_form.dart';
+import 'package:review_system/screens/home/evening/evening_feedback_form.dart';
 import 'package:review_system/widgets/video/video_image_block.dart';
 
-class MorningSection extends StatelessWidget {
+class EveningSection extends StatelessWidget {
+  int mainIndex;
   int videoIndex;
-  MorningSection(this.videoIndex);
+  EveningSection(this.mainIndex, this.videoIndex);
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
         children: [
           VideoImageBlock(
-            videoUrl: MorningVideosLinks.getVideoLinks(this.videoIndex),
+            videoUrl:
+                MovieLinks.getEveningVideoLink(this.mainIndex, this.videoIndex),
           ),
-          FeedbackForm()
+          EveningFeedbackForm(),
         ],
       ),
     );

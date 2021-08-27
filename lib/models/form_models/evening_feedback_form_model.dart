@@ -1,6 +1,6 @@
 import 'package:review_system/constants/string_constants.dart';
 
-class FeedbackFormData {
+class EveningFeedbackFormData {
   // String name = '';
   // String email = '';
   String focus = "";
@@ -15,8 +15,9 @@ class FeedbackFormData {
         "focus": this.focus,
         "knowledge": this.knowledge,
         "bridging": this.bridging,
-        "feeling": FeedbackFormFieldHintConstants.getFeelingTypes(this.feeling),
-        "motivation":
-            FeedbackFormFieldHintConstants.getMotivationTypes(this.motivation),
+        "feeling":
+            EveningFeedbackFormFieldHintConstants.getFeelingTypes(this.feeling),
+        "motivation": EveningFeedbackFormFieldHintConstants.getMotivationTypes(
+            this.motivation),
       };
 }

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
-ValueNotifier<int> videoIndex = ValueNotifier<int>(1);
+ValueNotifier<Map> videoIndex = ValueNotifier<Map>({
+  "main": 1,
+  "video": 1,
+});
 
 TabController homePageTabController;
