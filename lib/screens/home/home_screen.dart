@@ -14,34 +14,33 @@ class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+    homePageTabController = TabController(vsync: this, length: 4);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: DefaultTabController(
-        length: 4,
-        child: Scaffold(
-          appBar: _buildAppbar(),
-          body: ValueListenableBuilder(
-            valueListenable: videoIndex,
-            builder: (BuildContext context, dynamic value, Widget child) {
-              print(value);
-              return TabBarView(
-                children: [
-                  MorningSection(value),
-                  EveningSection(value),
-                  TableOfContents(),
-                  Settings(),
-                ],
-              );
-            },
-          ),
+      body: Scaffold(
+        appBar: _buildAppbar(),
+        body: ValueListenableBuilder(
+          valueListenable: videoIndex,
+          builder: (BuildContext context, dynamic value, Widget child) {
+            print(value);
+            return TabBarView(
+              controller: homePageTabController,
+              children: [
+                MorningSection(value),
+                EveningSection(value),
+                TableOfContents(),
+                Settings(),
+              ],
+            );
+          },
         ),
       ),
     );
@@ -50,6 +49,7 @@ class _HomeState extends State<Home> {
   _buildAppbar() {
     return AppBar(
       title: TabBar(
+        controller: homePageTabController,
         tabs: [
           Tab(
             icon: Icon(FontAwesomeIcons.cloudSun),

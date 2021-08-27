@@ -36,131 +36,129 @@ class _FeedbackFormState extends State<FeedbackForm> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Form(
-        key: _formKey,
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            Column(
-              children: [
-                // customField(
-                //   hint: FeedbackFormFieldHintConstants.name,
-                //   isMandatory: true,
-                //   onSaved: (String value) {
-                //     this._data.name = value.trim();
-                //   },
-                // ),
-                // customField(
-                //   hint: FeedbackFormFieldHintConstants.emailAddress,
-                //   isMandatory: true,
-                //   onSaved: (String value) {
-                //     this._data.email = value.trim();
-                //   },
-                // ),
+    return Form(
+      key: _formKey,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Column(
+            children: [
+              // customField(
+              //   hint: FeedbackFormFieldHintConstants.name,
+              //   isMandatory: true,
+              //   onSaved: (String value) {
+              //     this._data.name = value.trim();
+              //   },
+              // ),
+              // customField(
+              //   hint: FeedbackFormFieldHintConstants.emailAddress,
+              //   isMandatory: true,
+              //   onSaved: (String value) {
+              //     this._data.email = value.trim();
+              //   },
+              // ),
 
-                _buildButtonHeaders(FeedbackFormFieldHintConstants.feeling),
-                //build feeling buttons
-                Wrap(
-                  alignment: WrapAlignment.center,
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  children: List.generate(5, (index) => index)
-                      .map(
-                        (item) => formButtons(
-                          color:
-                              FeedbackFormFieldColorConstants.getFeelingColors(
-                                  item),
-                          title: FeedbackFormFieldHintConstants.getFeelingTypes(
-                              item),
-                          isSelected: this._data.feeling == item,
-                          onTap: () {
-                            this._data.feeling = item;
-                            setState(() {});
-                          },
-                        ),
-                      )
-                      .toList()
-                      .cast<Widget>(),
-                ),
-                customField(
-                  multiline: true,
-                  hint: FeedbackFormFieldHintConstants.focus,
-                  onSaved: (String value) {
-                    this._data.focus = value.trim();
-                  },
-                ),
-                customField(
-                  multiline: true,
-                  hint: FeedbackFormFieldHintConstants.knowledge,
-                  onSaved: (String value) {
-                    this._data.knowledge = value.trim();
-                  },
-                ),
-                customField(
-                  multiline: true,
-                  hint: FeedbackFormFieldHintConstants.bridging,
-                  onSaved: (String value) {
-                    this._data.bridging = value.trim();
-                  },
-                ),
-                _buildButtonHeaders(FeedbackFormFieldHintConstants.motivation),
-                //build Motivation  buttons
-                Wrap(
-                  alignment: WrapAlignment.center,
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  children: List.generate(11, (index) => index)
-                      .map(
-                        (item) => formButtons(
-                          color: FeedbackFormFieldColorConstants
-                              .getMotivationColors(item),
-                          title:
-                              FeedbackFormFieldHintConstants.getMotivationTypes(
-                                  item),
-                          isSelected: this._data.motivation == item,
-                          onTap: () {
-                            this._data.motivation = item;
-                            setState(() {});
-                          },
-                        ),
-                      )
-                      .toList()
-                      .cast<Widget>(),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: InkWell(
-                    onTap: _handleFormSave,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.amber,
-                        borderRadius: BorderRadius.circular(10),
+              _buildButtonHeaders(FeedbackFormFieldHintConstants.feeling),
+              //build feeling buttons
+              Wrap(
+                alignment: WrapAlignment.center,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                children: List.generate(5, (index) => index)
+                    .map(
+                      (item) => formButtons(
+                        color:
+                            FeedbackFormFieldColorConstants.getFeelingColors(
+                                item),
+                        title: FeedbackFormFieldHintConstants.getFeelingTypes(
+                            item),
+                        isSelected: this._data.feeling == item,
+                        onTap: () {
+                          this._data.feeling = item;
+                          setState(() {});
+                        },
                       ),
-                      width: double.infinity,
-                      child: Center(
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            "Save",
-                            textScaleFactor: 1.3,
-                          ),
+                    )
+                    .toList()
+                    .cast<Widget>(),
+              ),
+              customField(
+                multiline: true,
+                hint: FeedbackFormFieldHintConstants.focus,
+                onSaved: (String value) {
+                  this._data.focus = value.trim();
+                },
+              ),
+              customField(
+                multiline: true,
+                hint: FeedbackFormFieldHintConstants.knowledge,
+                onSaved: (String value) {
+                  this._data.knowledge = value.trim();
+                },
+              ),
+              customField(
+                multiline: true,
+                hint: FeedbackFormFieldHintConstants.bridging,
+                onSaved: (String value) {
+                  this._data.bridging = value.trim();
+                },
+              ),
+              _buildButtonHeaders(FeedbackFormFieldHintConstants.motivation),
+              //build Motivation  buttons
+              Wrap(
+                alignment: WrapAlignment.center,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                children: List.generate(11, (index) => index)
+                    .map(
+                      (item) => formButtons(
+                        color: FeedbackFormFieldColorConstants
+                            .getMotivationColors(item),
+                        title:
+                            FeedbackFormFieldHintConstants.getMotivationTypes(
+                                item),
+                        isSelected: this._data.motivation == item,
+                        onTap: () {
+                          this._data.motivation = item;
+                          setState(() {});
+                        },
+                      ),
+                    )
+                    .toList()
+                    .cast<Widget>(),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: InkWell(
+                  onTap: _handleFormSave,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.amber,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    width: double.infinity,
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          "Save",
+                          textScaleFactor: 1.3,
                         ),
                       ),
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height / 2,
-                )
-              ],
-            ),
-            ValueListenableBuilder(
-              valueListenable: _isLoading,
-              builder: (BuildContext context, dynamic value, Widget child) {
-                return value ? CircularProgressIndicator() : SizedBox();
-              },
-            ),
-          ],
-        ),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height / 2,
+              )
+            ],
+          ),
+          ValueListenableBuilder(
+            valueListenable: _isLoading,
+            builder: (BuildContext context, dynamic value, Widget child) {
+              return value ? CircularProgressIndicator() : SizedBox();
+            },
+          ),
+        ],
       ),
     );
   }

@@ -14,14 +14,7 @@ class EveningSection extends StatelessWidget {
           VideoImageBlock(
             videoUrl: EveingVideosLinks.getVideoLinks(this.videoIndex),
           ),
-          Container(
-            height: MediaQuery.of(context).size.height / 2.2,
-            child: ListView(
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              children: [FeedbackForm()],
-            ),
-          ),
+          FeedbackForm(),
         ],
       ),
     );

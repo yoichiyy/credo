@@ -72,6 +72,7 @@ class _TableOfContentsState extends State<TableOfContents> {
         onTap: () {
           videoIndex.value = index;
           // Get.back();
+          homePageTabController.animateTo(0);
         },
         child: Container(
           padding: const EdgeInsets.all(8.0),
