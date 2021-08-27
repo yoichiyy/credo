@@ -159,299 +159,489 @@ class EveingVideosLinks {
 class MovieLinks {
   Map _morningMovieLinks = {
     1: {
-      0: '基礎講座　思考力とは',
-      1: '#005 　エベレストの準備をすれば、富士山には簡単に登れる（エベレスト理論）',
-      2: '#086 　自信を生み出す予測と準備',
-      3: '#224 　同じ石で２度転ばない',
-      4: '#233 　最善策が見えない時は、最悪策を避けることに集中する',
-      5: '#243 イノベーションシリーズ　今日得られるものは何かを問いかける',
-      6: '#298 メンタルトレーニングで幸せを高める！シリーズ　シナリオ、日誌を書いて予測力アップ',
-      7: '#126 　重箱の隅をつついて質を高める',
-      8: '#344 　ゴールまでを日数で割り算し、日々のパフォーマンスアップ',
-      8.5: '準備力振返り',
-      9: '#076 　イベントでは長所を使い乗り越える ',
-      10: '#117 　過去の成功に聞く！ ',
-      11: '#118 　過去の失敗に聞く！ ',
-      12: '#119 　自分を知って危機管理 ',
-      13: '#120 　自己分析でコントロールしよう ',
-      14: '#329 　自分が好きで続けられることで、他人が嫌がることが良い！ ',
-      15: '#349 　没頭できる やりたい事を見つけてパフォーマンスアップ ',
-      16: '#350 　自分の長所を磨き仕事にぶつけて結果を出す ',
-      16.5: '自己分析力振返り',
-      17: '#039　物的創造　心的創造',
-      18: '#040 　頭で勝ってから行け！イメージこそすべて！！ ',
-      19: '#046 　手入れを怠ると思いは枯れる。夢は腐る。 ',
-      20: '#077 　成功者は成功のシナリオを描いていた ',
-      21: '#238 イノベーションシリーズ　未来と相談する ',
-      22: '#247 イノベーションシリーズ⑩　感じたい感情を先に感じてイノベーション ',
-      23: '#281 　思った以上の人生を目指す ',
-      24: '#283 　人の思いが行動になってにじみ出る ',
-      24.5: 'イメージ力振返り'
-    },
+        case 1:
+        return "https://youtu.be/b4W3aJBjmH0";
+        break;
+        case 2:
+        return "https://youtu.be/Llz2xLxLxqo";
+        break;
+        case 3:
+        return "https://youtu.be/UenlE0W1JCY";
+        break;
+        case 4:
+        return "https://youtu.be/tQveQK2hUcA";
+        break;
+        case 5:
+        return "https://youtu.be/KBvGWoPTTyU";
+        break;
+        case 6:
+        return "https://youtu.be/PT68e4XzcKI";
+        break;
+        case 7:
+        return "https://youtu.be/hRY2tOsP9R4";
+        break;
+        case 8:
+        return "https://youtu.be/9uwqvUWevUQ";
+        break;
+        case 9:
+        return "https://youtu.be/GqGZQ8mv3Y8";
+        break;
+        case 10:
+        return "https://youtu.be/R0xAyEbI5ew";
+        break;
+        case 11:
+        return "https://youtu.be/iRPL7P8N3D4";
+        break;
+        case 12:
+        return "https://youtu.be/So2jyJR4DzE";
+        break;
+        case 13:
+        return "https://youtu.be/pGvhOSJkl5g";
+        break;
+        case 14:
+        return "https://youtu.be/1CWZdFoUMX8";
+        break;
+        case 15:
+        return "https://youtu.be/SW-ProRJ9bU";
+        break;
+        case 16:
+        return "https://youtu.be/a_4NylwJJRQ";
+        break;
+        case 17:
+        return "https://youtu.be/Ifvhzc4lxQ4";
+        break;
+        case 18:
+        return "https://youtu.be/qQFxU6GB5aw";
+        break;
+        case 19:
+        return "https://youtu.be/78bMGuaS_aA";
+        break;
+        case 20:
+        return "https://youtu.be/c-PpOdtcNz8";
+        break;
+        case 21:
+        return "https://youtu.be/Yv6mHCT1PhQ";
+        break;
+        case 22:
+        return "https://youtu.be/HzKlDk1YpPU";
+        break;
+        case 23:
+        return "https://youtu.be/q3cNRgtt-A8";
+        break;
+        case 24:
+        return "https://youtu.be/GmXnH2YPL9k";
+        break;
+        case 25:
+        return "https://youtu.be/usocNUtSyqo";
+        break;
+        case 26:
+        return "https://youtu.be/UQiAFs9ChiA";
+        break;
+        case 27:
+        return "https://youtu.be/962RyzIijW0";
+        break;
+        case 28:
+        return "https://youtu.be/Gn1WVOgJbuo";
+        break;    },
+        
     2: {
-      0: '基礎講座 行動力とは',
-      1: '#024 　もし、もう一度やり直しが出来るならば…　',
-      2: '#012 　問題は発生と同時に答えを背負っている 答えは自分の中にある　',
-      3: '#041 　偉人はみな考える！一日一回思考する！！　',
-      4: '#244 イノベーションシリーズ　問題より、解決策にフォーカスする　',
-      5: '#231 　前提を疑う　エディー・ジョーンズ',
-      6: '#064 　その心は？　',
-      7: '#228 　本質を追求する　',
-      8: '#318 　逆転の発想でパフォーマンスアップ　',
-      8.5: '課題発見・解決力クレド振り返り',
-      9: '#245 イノベーションシリーズ　たくさんの褒美を用意しておく　',
-      10: '#027 　特例禁止で強くなる！　',
-      11: '#236 　人目にさらしパフォーマンスアップ　',
-      12: '#339 　もう一回、あと一回で成長する　',
-      13: '#049 　才能は有限！努力は無限！　',
-      14: '#255 　あなたを待っている誰かや、何かを考える　',
-      15: '#262 　ハンディキャップは意外といい　',
-      16: '#163 トレーニングの原理・原則シリーズ　少しずつ高める　',
-      16.5: 'やり切る力 クレド振り返り',
-      17: '#116 　イノベーション＝イミテーション+イマジネーション　',
-      18: '#014 　未来を願うならあなた自身が望む未来になりなさい　',
-      19: '#210 　最終学歴を最新学歴に更新する　',
-      20: '#316 　時代を感じてパフォーマンスアップ　',
-      21: '#327 　インプットの量を増やして　ひらめき　アップ！　',
-      22: '#211 　シンギュラリティに備える　',
-      23: '#230 　ゆでガエルになるな！　',
-      24: '#301 メンタルトレーニングで幸せを高める！シリーズ　４つの未来を描いて自己実現意欲アップ　',
-      24.5: '創造力 01力 振り返り＋アセスメント＋まとめ',
-    },
+case 1:
+return "https://youtu.be/IsmtzbFIHiM";
+break;
+case 2:
+return "https://youtu.be/Llz2xLxLxqo";
+break;
+case 3:
+return "https://youtu.be/UenlE0W1JCY";
+break;
+case 4:
+return "https://youtu.be/tQveQK2hUcA";
+break;
+case 5:
+return "https://youtu.be/KBvGWoPTTyU";
+break;
+case 6:
+return "https://youtu.be/PT68e4XzcKI";
+break;
+case 7:
+return "https://youtu.be/hRY2tOsP9R4";
+break;
+case 8:
+return "https://youtu.be/9uwqvUWevUQ";
+break;
+case 9:
+return "https://youtu.be/GqGZQ8mv3Y8";
+break;
+case 10:
+return "https://youtu.be/R0xAyEbI5ew";
+break;
+case 11:
+return "https://youtu.be/iRPL7P8N3D4";
+break;
+case 12:
+return "https://youtu.be/So2jyJR4DzE";
+break;
+case 13:
+return "https://youtu.be/pGvhOSJkl5g";
+break;
+case 14:
+return "https://youtu.be/1CWZdFoUMX8";
+break;
+case 15:
+return "https://youtu.be/SW-ProRJ9bU";
+break;
+case 16:
+return "https://youtu.be/a_4NylwJJRQ";
+break;
+case 17:
+return "https://youtu.be/Ifvhzc4lxQ4";
+break;
+case 18:
+return "https://youtu.be/qQFxU6GB5aw";
+break;
+case 19:
+return "https://youtu.be/78bMGuaS_aA";
+break;
+case 20:
+return "https://youtu.be/c-PpOdtcNz8";
+break;
+case 21:
+return "https://youtu.be/Yv6mHCT1PhQ";
+break;
+case 22:
+return "https://youtu.be/HzKlDk1YpPU";
+break;
+case 23:
+return "https://youtu.be/q3cNRgtt-A8";
+break;
+case 24:
+return "https://youtu.be/GmXnH2YPL9k";
+break;
+case 25:
+return "https://youtu.be/usocNUtSyqo";
+break;
+case 26:
+return "https://youtu.be/UQiAFs9ChiA";
+break;
+case 27:
+return "https://youtu.be/962RyzIijW0";
+break;
+case 28:
+return "https://youtu.be/Gn1WVOgJbuo";
+break;
+ },
     3: {
-      0: '基礎講座　活用力とは',
-      1: '#328 　知る、使う、使いこなしてB型力アップ　',
-      2: '#033 　受け身は極悪！　',
-      3: '#179 　感じる力を高める　',
-      4: '#138 　市場価値を高める　',
-      5: '#183 　人を育てる『観察・面談・アンケート』　',
-      6: '#240 イノベーションシリーズ　強者と勝負する　',
-      7: '#280 　一つずつ変えてパフォーマンスアップ　',
-      8: '#284 　たくさんの知識・情報をインプットしひらめきアップ　',
-      8.5: '実践力　クレド振り返り',
-      9: '#340 　たった一言が人生を変える。言葉を大切に！　',
-      10: '#232 　10番目の人になり、危機管理　',
-      11: '#358 究極の教育シリーズ　全身全霊で伝える　',
-      12: '#170 　言葉を定めて人財教育　',
-      13: '#303 　熱意の伝え方を学ぶ、教える　',
-      14: '#317 　本は薄く文章は短い方がいい　',
-      15: '#235 　名札と値札で勝負する　',
-      16: '#254 　演じているうちにそうなる　',
-      16.5: '自己表現力クレド振り返り',
-      17: '#023 　１に改善、２に改善、そして改善、また改善　',
-      18: '#148 　引き出しを増やす　',
-      19: '#149 　相反するものを同時に学ぶ　',
-      20: '#212 　困った時は異業種から学ぶ　',
-      21: '#226 　何はなくともまずブリッジング　',
-      22: '#347 　人の話をたくさん聞いて捨てて 身に着ける　',
-      23: '#099 　圧倒的なナンバー1を見ておく　',
-      24: '#195 　当事者意識で壁を破れ！　',
-      24.5: 'ブリッジング力　クレド振り返り＋アセスメント＋まとめ',
-    },
+case 1:
+return "https://youtu.be/8uW6E2c1auw";
+break;
+case 2:
+return "https://youtu.be/Llz2xLxLxqo";
+break;
+case 3:
+return "https://youtu.be/UenlE0W1JCY";
+break;
+case 4:
+return "https://youtu.be/tQveQK2hUcA";
+break;
+case 5:
+return "https://youtu.be/KBvGWoPTTyU";
+break;
+case 6:
+return "https://youtu.be/PT68e4XzcKI";
+break;
+case 7:
+return "https://youtu.be/hRY2tOsP9R4";
+break;
+case 8:
+return "https://youtu.be/9uwqvUWevUQ";
+break;
+case 9:
+return "https://youtu.be/GqGZQ8mv3Y8";
+break;
+case 10:
+return "https://youtu.be/R0xAyEbI5ew";
+break;
+case 11:
+return "https://youtu.be/iRPL7P8N3D4";
+break;
+case 12:
+return "https://youtu.be/So2jyJR4DzE";
+break;
+case 13:
+return "https://youtu.be/pGvhOSJkl5g";
+break;
+case 14:
+return "https://youtu.be/1CWZdFoUMX8";
+break;
+case 15:
+return "https://youtu.be/SW-ProRJ9bU";
+break;
+case 16:
+return "https://youtu.be/a_4NylwJJRQ";
+break;
+case 17:
+return "https://youtu.be/Ifvhzc4lxQ4";
+break;
+case 18:
+return "https://youtu.be/qQFxU6GB5aw";
+break;
+case 19:
+return "https://youtu.be/78bMGuaS_aA";
+break;
+case 20:
+return "https://youtu.be/c-PpOdtcNz8";
+break;
+case 21:
+return "https://youtu.be/Yv6mHCT1PhQ";
+break;
+case 22:
+return "https://youtu.be/HzKlDk1YpPU";
+break;
+case 23:
+return "https://youtu.be/q3cNRgtt-A8";
+break;
+case 24:
+return "https://youtu.be/GmXnH2YPL9k";
+break;
+case 25:
+return "https://youtu.be/usocNUtSyqo";
+break;
+case 26:
+return "https://youtu.be/UQiAFs9ChiA";
+break;
+case 27:
+return "https://youtu.be/962RyzIijW0";
+break;
+case 28:
+return "https://youtu.be/Gn1WVOgJbuo";
+break;    },
     4: {
-      1: "#024 　もし、もう一度やり直しが出来るならば…　 …【行動力 : 課題発見力】",
-      2: "#012 　問題は発生と同時に答えを背負っている 答えは自分の中にある　 …【行動力 : 課題発見力】",
-      3: "#041 　偉人はみな考える！一日一回思考する！！　 …【行動力 : 課題発見力】",
-      4: "#244 イノベーションシリーズ　問題より、解決策にフォーカスする　 …【行動力 : 課題発見力】",
-      5: "#231 　前提を疑う　エディー・ジョーンズ …【行動力 : 課題発見力】",
-      6: "#064 　その心は？　 …【行動力 : 課題発見力】",
-      7: "#228 　本質を追求する　 …【行動力 : 課題発見力】",
-      8: "#318 　逆転の発想でパフォーマンスアップ　 …【行動力 : 課題発見力】",
-      8.5: "課題発見力振返り",
-      9: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      10: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      11: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      12: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      13: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      14: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      15: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      16: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      16.5: "やりきる力振返り",
-      17: "#116 　イノベーション＝イミテーション+イマジネーション　 …【行動力 : 創造力・01力】",
-      18: "#014 　未来を願うならあなた自身が望む未来になりなさい　 …【行動力 : 創造力・01力】",
-      19: "#210 　最終学歴を最新学歴に更新する　 …【行動力 : 創造力・01力】",
-      20: "#316 　時代を感じてパフォーマンスアップ　 …【行動力 : 創造力・01力】",
-      21: "#327 　インプットの量を増やして　ひらめき　アップ！　 …【行動力 : 創造力・01力】",
-      22: "#211 　シンギュラリティに備える　 …【行動力 : 創造力・01力】",
-      23: "#230 　ゆでガエルになるな！　 …【行動力 : 創造力・01力】",
-      24: "#301 メンタルトレーニングで幸せを高める！シリーズ　４つの未来を描いて自己実現意欲アップ　 …【行動力 : 創造力・01力】",
-      24.5: "創造力振返り",
     },
     5: {
-      1: "#024 　もし、もう一度やり直しが出来るならば…　 …【行動力 : 課題発見力】",
-      2: "#012 　問題は発生と同時に答えを背負っている 答えは自分の中にある　 …【行動力 : 課題発見力】",
-      3: "#041 　偉人はみな考える！一日一回思考する！！　 …【行動力 : 課題発見力】",
-      4: "#244 イノベーションシリーズ　問題より、解決策にフォーカスする　 …【行動力 : 課題発見力】",
-      5: "#231 　前提を疑う　エディー・ジョーンズ …【行動力 : 課題発見力】",
-      6: "#064 　その心は？　 …【行動力 : 課題発見力】",
-      7: "#228 　本質を追求する　 …【行動力 : 課題発見力】",
-      8: "#318 　逆転の発想でパフォーマンスアップ　 …【行動力 : 課題発見力】",
-      8.5: "課題発見力振返り",
-      9: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      10: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      11: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      12: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      13: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      14: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      15: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      16: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      16.5: "やりきる力振返り",
-      17: "#116 　イノベーション＝イミテーション+イマジネーション　 …【行動力 : 創造力・01力】",
-      18: "#014 　未来を願うならあなた自身が望む未来になりなさい　 …【行動力 : 創造力・01力】",
-      19: "#210 　最終学歴を最新学歴に更新する　 …【行動力 : 創造力・01力】",
-      20: "#316 　時代を感じてパフォーマンスアップ　 …【行動力 : 創造力・01力】",
-      21: "#327 　インプットの量を増やして　ひらめき　アップ！　 …【行動力 : 創造力・01力】",
-      22: "#211 　シンギュラリティに備える　 …【行動力 : 創造力・01力】",
-      23: "#230 　ゆでガエルになるな！　 …【行動力 : 創造力・01力】",
-      24: "#301 メンタルトレーニングで幸せを高める！シリーズ　４つの未来を描いて自己実現意欲アップ　 …【行動力 : 創造力・01力】",
-      24.5: "創造力振返り",
-    }
   };
   Map _eveningMovieLinks = {
     1: {
-      1: "#024 　もし、もう一度やり直しが出来るならば…　 …【行動力 : 課題発見力】",
-      2: "#012 　問題は発生と同時に答えを背負っている 答えは自分の中にある　 …【行動力 : 課題発見力】",
-      3: "#041 　偉人はみな考える！一日一回思考する！！　 …【行動力 : 課題発見力】",
-      4: "#244 イノベーションシリーズ　問題より、解決策にフォーカスする　 …【行動力 : 課題発見力】",
-      5: "#231 　前提を疑う　エディー・ジョーンズ …【行動力 : 課題発見力】",
-      6: "#064 　その心は？　 …【行動力 : 課題発見力】",
-      7: "#228 　本質を追求する　 …【行動力 : 課題発見力】",
-      8: "#318 　逆転の発想でパフォーマンスアップ　 …【行動力 : 課題発見力】",
-      8.5: "課題発見力振返り",
-      9: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      10: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      11: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      12: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      13: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      14: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      15: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      16: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      16.5: "やりきる力振返り",
-      17: "#116 　イノベーション＝イミテーション+イマジネーション　 …【行動力 : 創造力・01力】",
-      18: "#014 　未来を願うならあなた自身が望む未来になりなさい　 …【行動力 : 創造力・01力】",
-      19: "#210 　最終学歴を最新学歴に更新する　 …【行動力 : 創造力・01力】",
-      20: "#316 　時代を感じてパフォーマンスアップ　 …【行動力 : 創造力・01力】",
-      21: "#327 　インプットの量を増やして　ひらめき　アップ！　 …【行動力 : 創造力・01力】",
-      22: "#211 　シンギュラリティに備える　 …【行動力 : 創造力・01力】",
-      23: "#230 　ゆでガエルになるな！　 …【行動力 : 創造力・01力】",
-      24: "#301 メンタルトレーニングで幸せを高める！シリーズ　４つの未来を描いて自己実現意欲アップ　 …【行動力 : 創造力・01力】",
-      24.5: "創造力振返り",
-    },
+case 1:
+return "https://youtu.be/fa4ocmimeUE";
+break;
+case 2:
+return "https://youtu.be/xIu94_pK5Fg";
+break;
+case 3:
+return "https://youtu.be/vwq_0w_Zg0Y";
+break;
+case 4:
+return "https://youtu.be/j9dvnC6PGco";
+break;
+case 5:
+return "https://youtu.be/SCxfVC1RwoE";
+break;
+case 6:
+return "https://youtu.be/ktptZ_owkyM";
+break;
+case 7:
+return "https://youtu.be/uD8KrKcqEb4";
+break;
+case 8:
+return "https://youtu.be/BUYiLung_TQ";
+break;
+case 9:
+return "https://youtu.be/73tn-2Aay28";
+break;
+case 10:
+return "https://youtu.be/xsl01v01H6c";
+break;
+case 11:
+return "https://youtu.be/YOPjdAIFO8k";
+break;
+case 12:
+return "https://youtu.be/-peDmCPb0No";
+break;
+case 13:
+return "https://youtu.be/smfRsMcJpXg";
+break;
+case 14:
+return "https://youtu.be/U3AHMBxNc0Y";
+break;
+case 15:
+return "https://youtu.be/z-wv6338CMA";
+break;
+case 16:
+return "https://youtu.be/DRWHk8mEa7U";
+break;
+case 17:
+return "https://youtu.be/TYseBE8vxfg";
+break;
+case 18:
+return "https://youtu.be/y0sYgKaaKYw";
+break;
+case 19:
+return "https://youtu.be/NFP6LgM2Md8";
+break;
+case 20:
+return "https://youtu.be/Mke1UPiBWMI";
+break;
+case 21:
+return "https://youtu.be/ecP1R1M_mjs";
+break;
+case 22:
+return "https://youtu.be/TkjE54R6X_Y";
+break;
+case 23:
+return "https://youtu.be/ZlRBVaUCfNI";
+break;
+case 24:
+return "https://youtu.be/5br5JZBuSoU";
+break;    },
     2: {
-      1: "#024 　もし、もう一度やり直しが出来るならば…　 …【行動力 : 課題発見力】",
-      2: "#012 　問題は発生と同時に答えを背負っている 答えは自分の中にある　 …【行動力 : 課題発見力】",
-      3: "#041 　偉人はみな考える！一日一回思考する！！　 …【行動力 : 課題発見力】",
-      4: "#244 イノベーションシリーズ　問題より、解決策にフォーカスする　 …【行動力 : 課題発見力】",
-      5: "#231 　前提を疑う　エディー・ジョーンズ …【行動力 : 課題発見力】",
-      6: "#064 　その心は？　 …【行動力 : 課題発見力】",
-      7: "#228 　本質を追求する　 …【行動力 : 課題発見力】",
-      8: "#318 　逆転の発想でパフォーマンスアップ　 …【行動力 : 課題発見力】",
-      8.5: "課題発見力振返り",
-      9: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      10: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      11: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      12: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      13: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      14: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      15: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      16: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      16.5: "やりきる力振返り",
-      17: "#116 　イノベーション＝イミテーション+イマジネーション　 …【行動力 : 創造力・01力】",
-      18: "#014 　未来を願うならあなた自身が望む未来になりなさい　 …【行動力 : 創造力・01力】",
-      19: "#210 　最終学歴を最新学歴に更新する　 …【行動力 : 創造力・01力】",
-      20: "#316 　時代を感じてパフォーマンスアップ　 …【行動力 : 創造力・01力】",
-      21: "#327 　インプットの量を増やして　ひらめき　アップ！　 …【行動力 : 創造力・01力】",
-      22: "#211 　シンギュラリティに備える　 …【行動力 : 創造力・01力】",
-      23: "#230 　ゆでガエルになるな！　 …【行動力 : 創造力・01力】",
-      24: "#301 メンタルトレーニングで幸せを高める！シリーズ　４つの未来を描いて自己実現意欲アップ　 …【行動力 : 創造力・01力】",
-      24.5: "創造力振返り",
-    },
+case 1:
+return "https://youtu.be/4G3_PVpTLlw";
+break;
+case 2:
+return "https://youtu.be/SqAn3U40f28";
+break;
+case 3:
+return "https://youtu.be/55K2dplIM0w";
+break;
+case 4:
+return "https://youtu.be/66dRG3l7Z1E";
+break;
+case 5:
+return "https://youtu.be/cnUAdJ5FOt8";
+break;
+case 6:
+return "https://youtu.be/8iF8_QNpDaE";
+break;
+case 7:
+return "https://youtu.be/fh58FK-U-CM";
+break;
+case 8:
+return "https://youtu.be/leZXwKp-IdI";
+break;
+case 9:
+return "https://youtu.be/zIytIlqJDus";
+break;
+case 10:
+return "https://youtu.be/hIae1FpewRs";
+break;
+case 11:
+return "https://youtu.be/cSRgnccKrqQ";
+break;
+case 12:
+return "https://youtu.be/EaE3Q3mlZfw";
+break;
+case 13:
+return "https://youtu.be/M6q3Dx0yx74";
+break;
+case 14:
+return "https://youtu.be/KAdmnKkNhnw";
+break;
+case 15:
+return "https://youtu.be/alJkyZsi104";
+break;
+case 16:
+return "https://youtu.be/UT0ayYA0oVM";
+break;
+case 17:
+return "https://youtu.be/nLe5MR1gRr4";
+break;
+case 18:
+return "https://youtu.be/MQXsnrvrayc";
+break;
+case 19:
+return "https://youtu.be/0F95rOJbeF4";
+break;
+case 20:
+return "https://youtu.be/YEAekp7U00M";
+break;
+case 21:
+return "https://youtu.be/e-j0N0wHpNA";
+break;
+case 22:
+return "https://youtu.be/4OOpH45xlLk";
+break;
+case 23:
+return "https://youtu.be/JF878tIkKlU";
+break;
+case 24:
+return "https://youtu.be/VueHvrq11SE";
+break;    },
     3: {
-      1: "#024 　もし、もう一度やり直しが出来るならば…　 …【行動力 : 課題発見力】",
-      2: "#012 　問題は発生と同時に答えを背負っている 答えは自分の中にある　 …【行動力 : 課題発見力】",
-      3: "#041 　偉人はみな考える！一日一回思考する！！　 …【行動力 : 課題発見力】",
-      4: "#244 イノベーションシリーズ　問題より、解決策にフォーカスする　 …【行動力 : 課題発見力】",
-      5: "#231 　前提を疑う　エディー・ジョーンズ …【行動力 : 課題発見力】",
-      6: "#064 　その心は？　 …【行動力 : 課題発見力】",
-      7: "#228 　本質を追求する　 …【行動力 : 課題発見力】",
-      8: "#318 　逆転の発想でパフォーマンスアップ　 …【行動力 : 課題発見力】",
-      8.5: "課題発見力振返り",
-      9: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      10: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      11: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      12: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      13: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      14: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      15: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      16: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      16.5: "やりきる力振返り",
-      17: "#116 　イノベーション＝イミテーション+イマジネーション　 …【行動力 : 創造力・01力】",
-      18: "#014 　未来を願うならあなた自身が望む未来になりなさい　 …【行動力 : 創造力・01力】",
-      19: "#210 　最終学歴を最新学歴に更新する　 …【行動力 : 創造力・01力】",
-      20: "#316 　時代を感じてパフォーマンスアップ　 …【行動力 : 創造力・01力】",
-      21: "#327 　インプットの量を増やして　ひらめき　アップ！　 …【行動力 : 創造力・01力】",
-      22: "#211 　シンギュラリティに備える　 …【行動力 : 創造力・01力】",
-      23: "#230 　ゆでガエルになるな！　 …【行動力 : 創造力・01力】",
-      24: "#301 メンタルトレーニングで幸せを高める！シリーズ　４つの未来を描いて自己実現意欲アップ　 …【行動力 : 創造力・01力】",
-      24.5: "創造力振返り",
-    },
+case 1:
+return "https://youtu.be/W7WrFM0__XM";
+break;
+case 2:
+return "https://youtu.be/0pwoyuDwL2E";
+break;
+case 3:
+return "https://youtu.be/zVA8NG_1dAE";
+break;
+case 4:
+return "https://youtu.be/ghq-z-bJKvI";
+break;
+case 5:
+return "https://youtu.be/9hQ1TIKRlPw";
+break;
+case 6:
+return "https://youtu.be/1aqeuFEfzZ0";
+break;
+case 7:
+return "https://youtu.be/VNfb2gJppic";
+break;
+case 8:
+return "https://youtu.be/Q8p6c2I9ufk";
+break;
+case 9:
+return "https://youtu.be/mBuOEhSi7ZI";
+break;
+case 10:
+return "https://youtu.be/QY3OFmmAaAY";
+break;
+case 11:
+return "https://youtu.be/_rh8Wmw-zkk";
+break;
+case 12:
+return "https://youtu.be/RKxrYWi3tho";
+break;
+case 13:
+return "https://youtu.be/mUIKj9WGKcY";
+break;
+case 14:
+return "https://youtu.be/EQH7Jxjjt2Y";
+break;
+case 15:
+return "https://youtu.be/MHXlps5TvXY";
+break;
+case 16:
+return "https://youtu.be/22F_bC3Odms";
+break;
+case 17:
+return "https://youtu.be/SersH9N3tG0";
+break;
+case 18:
+return "https://youtu.be/4JA704E_V2M";
+break;
+case 19:
+return "https://youtu.be/AnPQYh2fRzA";
+break;
+case 20:
+return "https://youtu.be/m5BQt2teWuI";
+break;
+case 21:
+return "https://youtu.be/iMvlrcpPSFQ";
+break;
+case 22:
+return "https://youtu.be/XwR-rXKQhkI";
+break;
+case 23:
+return "https://youtu.be/5ElkyQeTP1g";
+break;
+case 24:
+return "https://youtu.be/d6MTmfNJ9eI";
+break;    },
     4: {
-      1: "#024 　もし、もう一度やり直しが出来るならば…　 …【行動力 : 課題発見力】",
-      2: "#012 　問題は発生と同時に答えを背負っている 答えは自分の中にある　 …【行動力 : 課題発見力】",
-      3: "#041 　偉人はみな考える！一日一回思考する！！　 …【行動力 : 課題発見力】",
-      4: "#244 イノベーションシリーズ　問題より、解決策にフォーカスする　 …【行動力 : 課題発見力】",
-      5: "#231 　前提を疑う　エディー・ジョーンズ …【行動力 : 課題発見力】",
-      6: "#064 　その心は？　 …【行動力 : 課題発見力】",
-      7: "#228 　本質を追求する　 …【行動力 : 課題発見力】",
-      8: "#318 　逆転の発想でパフォーマンスアップ　 …【行動力 : 課題発見力】",
-      8.5: "課題発見力振返り",
-      9: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      10: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      11: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      12: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      13: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      14: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      15: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      16: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      16.5: "やりきる力振返り",
-      17: "#116 　イノベーション＝イミテーション+イマジネーション　 …【行動力 : 創造力・01力】",
-      18: "#014 　未来を願うならあなた自身が望む未来になりなさい　 …【行動力 : 創造力・01力】",
-      19: "#210 　最終学歴を最新学歴に更新する　 …【行動力 : 創造力・01力】",
-      20: "#316 　時代を感じてパフォーマンスアップ　 …【行動力 : 創造力・01力】",
-      21: "#327 　インプットの量を増やして　ひらめき　アップ！　 …【行動力 : 創造力・01力】",
-      22: "#211 　シンギュラリティに備える　 …【行動力 : 創造力・01力】",
-      23: "#230 　ゆでガエルになるな！　 …【行動力 : 創造力・01力】",
-      24: "#301 メンタルトレーニングで幸せを高める！シリーズ　４つの未来を描いて自己実現意欲アップ　 …【行動力 : 創造力・01力】",
-      24.5: "創造力振返り",
     },
     5: {
-      1: "#024 　もし、もう一度やり直しが出来るならば…　 …【行動力 : 課題発見力】",
-      2: "#012 　問題は発生と同時に答えを背負っている 答えは自分の中にある　 …【行動力 : 課題発見力】",
-      3: "#041 　偉人はみな考える！一日一回思考する！！　 …【行動力 : 課題発見力】",
-      4: "#244 イノベーションシリーズ　問題より、解決策にフォーカスする　 …【行動力 : 課題発見力】",
-      5: "#231 　前提を疑う　エディー・ジョーンズ …【行動力 : 課題発見力】",
-      6: "#064 　その心は？　 …【行動力 : 課題発見力】",
-      7: "#228 　本質を追求する　 …【行動力 : 課題発見力】",
-      8: "#318 　逆転の発想でパフォーマンスアップ　 …【行動力 : 課題発見力】",
-      8.5: "課題発見力振返り",
-      9: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      10: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      11: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      12: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      13: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      14: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      15: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      16: "#245 イノベーションシリーズ　たくさんの褒美を用意しておく　 …【行動力 : やりきる力】",
-      16.5: "やりきる力振返り",
-      17: "#116 　イノベーション＝イミテーション+イマジネーション　 …【行動力 : 創造力・01力】",
-      18: "#014 　未来を願うならあなた自身が望む未来になりなさい　 …【行動力 : 創造力・01力】",
-      19: "#210 　最終学歴を最新学歴に更新する　 …【行動力 : 創造力・01力】",
-      20: "#316 　時代を感じてパフォーマンスアップ　 …【行動力 : 創造力・01力】",
-      21: "#327 　インプットの量を増やして　ひらめき　アップ！　 …【行動力 : 創造力・01力】",
-      22: "#211 　シンギュラリティに備える　 …【行動力 : 創造力・01力】",
-      23: "#230 　ゆでガエルになるな！　 …【行動力 : 創造力・01力】",
-      24: "#301 メンタルトレーニングで幸せを高める！シリーズ　４つの未来を描いて自己実現意欲アップ　 …【行動力 : 創造力・01力】",
-      24.5: "創造力振返り",
     }
   };
 }
