@@ -70,8 +70,12 @@ class _TableOfContentsState extends State<TableOfContents> {
       padding: const EdgeInsets.all(8.0),
       child: InkWell(
         onTap: () {
-          videoIndex.value = index;
+          videoIndex.value = {
+            "main": mainIndex,
+            "video": index,
+          };
           // Get.back();
+          homePageTabController.animateTo(0);
         },
         child: Container(
           padding: const EdgeInsets.all(8.0),

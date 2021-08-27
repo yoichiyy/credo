@@ -4,8 +4,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:review_system/constants/global_constants.dart';
 import 'package:review_system/constants/string_constants.dart';
-import 'package:review_system/screens/home/evening_section.dart';
-import 'package:review_system/screens/home/morning_section.dart';
+import 'package:review_system/screens/home/evening/evening_section.dart';
+import 'package:review_system/screens/home/morning/morning_section.dart';
 import 'package:review_system/screens/table_of_contents/table_of_contents_screen.dart';
 import 'package:review_system/screens/user_management/settings_screen.dart';
 
@@ -14,34 +14,33 @@ class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+    homePageTabController = TabController(vsync: this, length: 4);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: DefaultTabController(
-        length: 4,
-        child: Scaffold(
-          appBar: _buildAppbar(),
-          body: ValueListenableBuilder(
-            valueListenable: videoIndex,
-            builder: (BuildContext context, dynamic value, Widget child) {
-              print(value);
-              return TabBarView(
-                children: [
-                  MorningSection(value),
-                  EveningSection(value),
-                  TableOfContents(),
-                  Settings(),
-                ],
-              );
-            },
-          ),
+      body: Scaffold(
+        appBar: _buildAppbar(),
+        body: ValueListenableBuilder(
+          valueListenable: videoIndex,
+          builder: (BuildContext context, dynamic value, Widget child) {
+            print(value);
+            return TabBarView(
+              controller: homePageTabController,
+              children: [
+                MorningSection(value["main"], value['video']),
+                EveningSection(value["main"], value['video']),
+                TableOfContents(),
+                Settings(),
+              ],
+            );
+          },
         ),
       ),
     );
@@ -50,6 +49,7 @@ class _HomeState extends State<Home> {
   _buildAppbar() {
     return AppBar(
       title: TabBar(
+        controller: homePageTabController,
         tabs: [
           Tab(
             icon: Icon(FontAwesomeIcons.cloudSun),
