@@ -48,37 +48,35 @@ class MorningFeedbackFormFieldHintConstants {
 class EveningFeedbackFormFieldHintConstants {
   static final String name = "お名前";
   static final String emailAddress = "メールアドレス";
-  static final String knowledge = "【Knowledge】今回のクレドで知ったことや学んだことを記入してください";
-  static final String focus = "【Focus】視聴して心にのこったキーワードやフレーズを記入してください";
+  static final String knowledge = "【Use】本日、他に活用したクレドがあれば記入して下さい";
+  static final String focus = "【Use】今回のクレドを活用したシーンを記入して下さい";
 
-  static final String motivation = "【Motivation】今回のクレドで抱いた感情は？";
+  static final String motivation =
+      "【Feedback】今日一日を振り返って記入してください（気づき、得たもの、もしもう一度やり直せるなら、などの観点から）";
 
-  static final String feeling = "【Feeling】クレド視聴前の気持ちは？";
+  static final String feeling = "【Feeling】今日一日の気持ちを下記の中から選んで下さい";
 
   static getFeelingTypes(int value) {
     List<String> _options = ["快晴", "晴れ", "曇り", "雨", "雷雨"];
     return _options[value];
   }
 
-  static final String bridging =
-      "今回のクレドををあなた自身のどのような事に活用できそうでしょうか？（具体的な場面や目標など）";
-
-  static getMotivationTypes(int value) {
-    List<String> _options = [
-      "共感!",
-      "新鮮!",
-      "納得!",
-      "難しそう!",
-      "感動!",
-      "半信半疑!",
-      "感謝!",
-      "ワクワク!",
-      "へぇー!",
-      "まじっすか!",
-      "すごくいい!"
-    ];
-    return _options[value];
-  }
+  // static getMotivationTypes(int value) {
+  //   List<String> _options = [
+  //     "共感!",
+  //     "新鮮!",
+  //     "納得!",
+  //     "難しそう!",
+  //     "感動!",
+  //     "半信半疑!",
+  //     "感謝!",
+  //     "ワクワク!",
+  //     "へぇー!",
+  //     "まじっすか!",
+  //     "すごくいい!"
+  //   ];
+  //   return _options[value];
+  // }
 }
 
 class LoginFormStringConstants {
