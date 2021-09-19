@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:review_system/constants/global_constants.dart';
 import 'package:review_system/constants/string_constants.dart';
 import 'package:review_system/models/form_models/login_form_model.dart';
 import 'package:review_system/controller/login_form_controller.dart';
@@ -26,6 +27,8 @@ class _LoginFormState extends State<LoginForm> {
       bool result = await LoginFormController().loginUser(_data);
       if (result) {
         _formKey.currentState.reset();
+        Get.back();
+        homePageTabController.animateTo(0);
       }
       _isLoading.value = false;
     }

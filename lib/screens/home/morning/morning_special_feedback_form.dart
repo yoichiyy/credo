@@ -1,35 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:review_system/constants/color_constants.dart';
 import 'package:review_system/constants/string_constants.dart';
-import 'package:review_system/controller/evening_feedback_form_controller.dart';
-import 'package:review_system/models/form_models/evening_feedback_form_model.dart';
+import 'package:review_system/controller/morninig_feedback_form_controller.dart';
+import 'package:review_system/controller/special_feedback_form_controller.dart';
+import 'package:review_system/models/form_models/morning_feedback_form_model.dart';
 import 'package:get/get.dart';
+import 'package:review_system/models/form_models/special_feedback_form_model.dart';
 import 'package:review_system/utils/form_utils.dart';
 import 'package:review_system/widgets/forms/form_buttons.dart';
 import 'package:review_system/widgets/forms/form_fields.dart';
 
-class EveningFeedbackForm extends StatefulWidget {
-  EveningFeedbackForm({Key key}) : super(key: key);
+class MorningSpecialFeedbackForm extends StatefulWidget {
+  MorningSpecialFeedbackForm({Key key}) : super(key: key);
 
   @override
-  _EveningFeedbackFormState createState() => _EveningFeedbackFormState();
+  _MorningSpecialFeedbackFormState createState() =>
+      _MorningSpecialFeedbackFormState();
 }
 
-class _EveningFeedbackFormState extends State<EveningFeedbackForm> {
+class _MorningSpecialFeedbackFormState
+    extends State<MorningSpecialFeedbackForm> {
   final _formKey = GlobalKey<FormState>();
   ValueNotifier<bool> _isLoading = ValueNotifier<bool>(false);
-  EveningFeedbackFormData _data = new EveningFeedbackFormData();
+  SpecialFeedbackFormData _data = new SpecialFeedbackFormData();
 
   _handleFormSave() async {
     if (await FormUtils.getUserConfirmationOnSave()) {
       if (_formKey.currentState.validate()) {
         _formKey.currentState.save();
         _isLoading.value = true;
-        bool result = await EveningFeedbackFormController().submitForm(_data);
+        bool result = await SpecialFeedbackFormController().submitForm(_data);
         if (result) {
           Get.snackbar("Feedback: ", "It is collected successfully");
           _formKey.currentState.reset();
-          _data = EveningFeedbackFormData();
+
+          _data = SpecialFeedbackFormData();
           FormUtils.closeKeyBoard(context);
         } else {
           Get.snackbar("Feedback: ", "Some error happened");
@@ -49,14 +54,14 @@ class _EveningFeedbackFormState extends State<EveningFeedbackForm> {
           Column(
             children: [
               // customField(
-              //   hint: EveningFeedbackFormFieldHintConstants.name,
+              //   hint: FeedbackFormFieldHintConstants.name,
               //   isMandatory: true,
               //   onSaved: (String value) {
               //     this._data.name = value.trim();
               //   },
               // ),
               // customField(
-              //   hint: EveningFeedbackFormFieldHintConstants.emailAddress,
+              //   hint: FeedbackFormFieldHintConstants.emailAddress,
               //   isMandatory: true,
               //   onSaved: (String value) {
               //     this._data.email = value.trim();
@@ -64,8 +69,7 @@ class _EveningFeedbackFormState extends State<EveningFeedbackForm> {
               // ),
 
               _buildButtonHeaders(
-                EveningFeedbackFormFieldHintConstants.feeling,
-              ),
+                  MorningSpecialFeedbackFormFieldHintConstants.feeling),
               //build feeling buttons
               Wrap(
                 alignment: WrapAlignment.center,
@@ -75,7 +79,7 @@ class _EveningFeedbackFormState extends State<EveningFeedbackForm> {
                       (item) => formButtons(
                         color: FeedbackFormFieldColorConstants.getFeelingColors(
                             item),
-                        title: EveningFeedbackFormFieldHintConstants
+                        title: MorningSpecialFeedbackFormFieldHintConstants
                             .getFeelingTypes(item),
                         isSelected: this._data.feeling == item,
                         onTap: () {
@@ -89,51 +93,26 @@ class _EveningFeedbackFormState extends State<EveningFeedbackForm> {
               ),
               customField(
                 multiline: true,
-                hint: EveningFeedbackFormFieldHintConstants.use1,
+                hint: MorningSpecialFeedbackFormFieldHintConstants.inspiration,
                 onSaved: (String value) {
-                  this._data.use1 = value.trim();
+                  this._data.inspiration = value.trim();
                 },
               ),
               customField(
                 multiline: true,
-                hint: EveningFeedbackFormFieldHintConstants.use2,
+                hint:
+                    MorningSpecialFeedbackFormFieldHintConstants.nextChallenge,
                 onSaved: (String value) {
-                  this._data.use2 = value.trim();
+                  this._data.nextChallenge = value.trim();
                 },
               ),
               customField(
                 multiline: true,
-                hint: EveningFeedbackFormFieldHintConstants.feedback,
+                hint: MorningSpecialFeedbackFormFieldHintConstants.knowledge,
                 onSaved: (String value) {
-                  this._data.feedback = value.trim();
+                  this._data.knowledge = value.trim();
                 },
               ),
-              // _buildButtonHeaders(
-              //     EveningFeedbackFormFieldHintConstants.motivation),
-              // //build Motivation  buttons
-              // Wrap(
-              //   alignment: WrapAlignment.center,
-              //   crossAxisAlignment: WrapCrossAlignment.center,
-              //   children: List.generate(11, (index) => index)
-              //       .map(
-              //         (item) => formButtons(
-              //           color:
-              //               FeedbackFormFieldColorConstants.getMotivationColors(
-              //                   item),
-              //           title: EveningFeedbackFormFieldHintConstants
-              //               .getMotivationTypes(item),
-              //           isSelected: this._data.motivation == item,
-              //           onTap: () {
-              //             this._data.motivation = item;
-              //             setState(() {});
-              //           },
-              //         ),
-              //       )
-              //       .toList()
-              //       .cast<Widget>(),
-              // ),
-
-              //Evening Questions
 
               Padding(
                 padding: const EdgeInsets.all(8.0),

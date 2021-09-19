@@ -72,7 +72,7 @@ class _TableOfContentsState extends State<TableOfContents> {
         onTap: () {
           videoIndex.value = {
             "main": mainIndex,
-            "video": index,
+            "video": MovieTitleConstants().movieIndexes[index].toDouble(),
           };
           // Get.back();
           homePageTabController.animateTo(0);

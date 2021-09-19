@@ -1,25 +1,25 @@
 import 'package:review_system/constants/global_constants.dart';
 import 'package:review_system/constants/string_constants.dart';
 
-class EveningFeedbackFormData {
+class SpecialFeedbackFormData {
   // String name = '';
   // String email = '';
-  String use1 = "";
-  String use2 = "";
-  String feedback = "";
   int feeling;
+  String knowledge = "";
+  String nextChallenge = "";
+  String inspiration = "";
 
   Map toJson() => {
         "name": "",
         "email": userGloabal != null ? userGloabal.email : "",
         "section": videoIndex.value['main'].toString(),
         "video": videoIndex.value['video'].toString(),
-        "type": 'evening',
-        "use1": this.use1,
-        "use2": this.use2,
-        "feedback": this.feedback,
-        "feeling":
-            EveningFeedbackFormFieldHintConstants.getFeelingTypes(this.feeling),
+        "type": 'furikaeri',
+        "knowledge": this.knowledge,
+        "nextChallenge": this.nextChallenge,
+        "inspiration": this.inspiration,
+        "feeling": MorningSpecialFeedbackFormFieldHintConstants.getFeelingTypes(
+            this.feeling),
         // "motivation": EveningFeedbackFormFieldHintConstants.getMotivationTypes(
         //     this.motivation),
       };

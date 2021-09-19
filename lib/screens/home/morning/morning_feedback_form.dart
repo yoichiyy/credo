@@ -4,6 +4,7 @@ import 'package:review_system/constants/string_constants.dart';
 import 'package:review_system/controller/morninig_feedback_form_controller.dart';
 import 'package:review_system/models/form_models/morning_feedback_form_model.dart';
 import 'package:get/get.dart';
+import 'package:review_system/utils/form_utils.dart';
 import 'package:review_system/widgets/forms/form_buttons.dart';
 import 'package:review_system/widgets/forms/form_fields.dart';
 
@@ -20,17 +21,21 @@ class _MorningFeedbackFormState extends State<MorningFeedbackForm> {
   MorningFeedbackFormData _data = new MorningFeedbackFormData();
 
   _handleFormSave() async {
-    if (_formKey.currentState.validate()) {
-      _formKey.currentState.save();
-      _isLoading.value = true;
-      bool result = await MorningFeedbackFormController().submitForm(_data);
-      if (result) {
-        Get.snackbar("Feedback: ", "It is collected successfully");
-        _formKey.currentState.reset();
-      } else {
-        Get.snackbar("Feedback: ", "Some error happened");
+    if (await FormUtils.getUserConfirmationOnSave()) {
+      if (_formKey.currentState.validate()) {
+        _formKey.currentState.save();
+        _isLoading.value = true;
+        bool result = await MorningFeedbackFormController().submitForm(_data);
+        if (result) {
+          Get.snackbar("Feedback: ", "It is collected successfully");
+          _formKey.currentState.reset();
+          _data = MorningFeedbackFormData();
+          FormUtils.closeKeyBoard(context);
+        } else {
+          Get.snackbar("Feedback: ", "Some error happened");
+        }
+        _isLoading.value = false;
       }
-      _isLoading.value = false;
     }
   }
 

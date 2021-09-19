@@ -1,3 +1,4 @@
+import 'package:review_system/constants/global_constants.dart';
 import 'package:review_system/constants/string_constants.dart';
 
 class MorningFeedbackFormData {
@@ -10,8 +11,11 @@ class MorningFeedbackFormData {
   int motivation;
 
   Map toJson() => {
-        // "name": this.name,
-        // "email": this.email,
+        "name": "",
+        "email": userGloabal != null ? userGloabal.email : "",
+        "section": videoIndex.value['main'].toString(),
+        "video": videoIndex.value['video'].toString(),
+        "type": 'morning',
         "focus": this.focus,
         "knowledge": this.knowledge,
         "bridging": this.bridging,

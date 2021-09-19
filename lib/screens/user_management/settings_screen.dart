@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:review_system/constants/global_constants.dart';
 import 'package:review_system/constants/string_constants.dart';
 import 'package:review_system/screens/user_management/login_screen.dart';
 import 'package:review_system/widgets/general_widgets.dart';
@@ -25,10 +26,17 @@ class _SettingsState extends State<Settings> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SettingMenuOptionButton(
-              onTap: _handleLoginButtonBPress,
-              title: SettingsPageStringConstants.loginButtonTitle,
-            )
+            userGloabal == null
+                ? SettingMenuOptionButton(
+                    onTap: _handleLoginButtonBPress,
+                    title: SettingsPageStringConstants.loginButtonTitle,
+                  )
+                : Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      SettingsPageStringConstants.alreadyLoggedIn,
+                    ),
+                  ),
           ],
         ),
       ),
