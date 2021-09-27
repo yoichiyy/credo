@@ -1,13 +1,17 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:review_system/constants/global_constants.dart';
 import 'package:review_system/constants/string_constants.dart';
+import 'package:review_system/controller/db_controller.dart';
+import 'package:review_system/controller/shared_prefs_controller.dart';
 import 'package:review_system/screens/home/evening/evening_section.dart';
 import 'package:review_system/screens/home/morning/morning_section.dart';
 import 'package:review_system/screens/table_of_contents/table_of_contents_screen.dart';
 import 'package:review_system/screens/user_management/settings_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -15,11 +19,26 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
+  bool _isLoading = true;
   @override
   void initState() {
     super.initState();
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     homePageTabController = TabController(vsync: this, length: 4);
+    get();
+  }
+
+  get() async {
+    prefs = await SharedPreferences.getInstance();
+
+    if (SharedPrefs.isLoggedIn()) {
+      userGloabal =
+          await Database.getUserDetails(userId: SharedPrefs.getUserId());
+    }
+
+    setState(() {
+      _isLoading = false;
+    });
   }
 
   @override
@@ -27,21 +46,23 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     return Scaffold(
       body: Scaffold(
         appBar: _buildAppbar(),
-        body: ValueListenableBuilder(
-          valueListenable: videoIndex,
-          builder: (BuildContext context, dynamic value, Widget child) {
-            print(value);
-            return TabBarView(
-              controller: homePageTabController,
-              children: [
-                MorningSection(value["main"], value['video']),
-                EveningSection(value["main"], value['video']),
-                TableOfContents(),
-                Settings(),
-              ],
-            );
-          },
-        ),
+        body: _isLoading
+            ? CupertinoActivityIndicator()
+            : ValueListenableBuilder(
+                valueListenable: videoIndex,
+                builder: (BuildContext context, dynamic value, Widget child) {
+                  print(value);
+                  return TabBarView(
+                    controller: homePageTabController,
+                    children: [
+                      MorningSection(value["main"], value['video']),
+                      EveningSection(value["main"], value['video']),
+                      TableOfContents(),
+                      Settings(),
+                    ],
+                  );
+                },
+              ),
       ),
     );
   }

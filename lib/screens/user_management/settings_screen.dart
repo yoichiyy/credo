@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:review_system/constants/global_constants.dart';
 import 'package:review_system/constants/string_constants.dart';
+import 'package:review_system/controller/shared_prefs_controller.dart';
 import 'package:review_system/screens/user_management/login_screen.dart';
 import 'package:review_system/widgets/general_widgets.dart';
 
@@ -31,15 +32,44 @@ class _SettingsState extends State<Settings> {
                     onTap: _handleLoginButtonBPress,
                     title: SettingsPageStringConstants.loginButtonTitle,
                   )
-                : Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      SettingsPageStringConstants.alreadyLoggedIn,
-                    ),
-                  ),
+                : _buildLoggedInTab()
           ],
         ),
       ),
+    );
+  }
+
+  _buildLoggedInTab() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          width: 10,
+        ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: 10,
+            ),
+            Text(LoginFormStringConstants.loggedInMessage),
+            SizedBox(
+              height: 5,
+            ),
+            Text(LoginFormStringConstants.ID + " " + userGloabal.email),
+          ],
+        ),
+        Spacer(),
+        TextButton(
+          onPressed: () {
+            SharedPrefs.markLoggedOut();
+            homePageTabController.animateTo(0);
+          },
+          child: Text(LoginFormStringConstants.logOutButtonTitle),
+        )
+      ],
     );
   }
 }

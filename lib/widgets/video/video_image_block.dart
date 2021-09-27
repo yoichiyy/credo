@@ -6,11 +6,8 @@ import 'package:get/get.dart';
 
 class VideoImageBlock extends StatefulWidget {
   String videoUrl;
-  String _imageURL;
 
-  VideoImageBlock({this.videoUrl}) {
-    this._imageURL = YoutubePlayer.convertUrlToId(videoUrl);
-  }
+  VideoImageBlock({this.videoUrl});
 
   @override
   _VideoImageBlockState createState() => _VideoImageBlockState();
@@ -22,6 +19,28 @@ class _VideoImageBlockState extends State<VideoImageBlock> {
   @override
   void initState() {
     super.initState();
+    _initializaController();
+  }
+
+  @override
+  void didUpdateWidget(covariant VideoImageBlock oldWidget) {
+    _initializaController();
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
+  void deactivate() {
+    _youtubePlayerController.pause();
+    super.deactivate();
+  }
+
+  @override
+  void dispose() {
+    _youtubePlayerController.dispose();
+    super.dispose();
+  }
+
+  _initializaController() {
     _youtubePlayerController = YoutubePlayerController(
       initialVideoId: YoutubePlayer.convertUrlToId(widget.videoUrl),
       flags: const YoutubePlayerFlags(
@@ -35,18 +54,7 @@ class _VideoImageBlockState extends State<VideoImageBlock> {
         // hideControls: true,
       ),
     );
-  }
-
-  @override
-  void deactivate() {
-    _youtubePlayerController.pause();
-    super.deactivate();
-  }
-
-  @override
-  void dispose() {
-    _youtubePlayerController.dispose();
-    super.dispose();
+    setState(() {});
   }
 
   @override

@@ -19,7 +19,9 @@ class EveningSection extends StatelessWidget {
               children: [
                 VideoImageBlock(
                   videoUrl: MovieLinks.getEveningVideoLink(
-                      this.mainIndex, this.videoIndex),
+                    this.mainIndex,
+                    this.videoIndex,
+                  ),
                 ),
                 EveningFeedbackForm(),
               ],

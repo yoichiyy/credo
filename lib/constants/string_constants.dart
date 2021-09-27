@@ -84,6 +84,9 @@ class LoginFormStringConstants {
   static final String emailAddress = "メールアドレス";
   static final String password = "パスワード";
   static final String buttonTitle = "Login / Register";
+  static final String logOutButtonTitle = "Logout";
+  static final String loggedInMessage = "ログイン済";
+  static final String ID = "ID";
 }
 
 class SettingsPageStringConstants {

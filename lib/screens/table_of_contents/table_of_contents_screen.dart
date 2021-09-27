@@ -69,11 +69,12 @@ class _TableOfContentsState extends State<TableOfContents> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: InkWell(
-        onTap: () {
+        onTap: () async {
           videoIndex.value = {
             "main": mainIndex,
             "video": MovieTitleConstants().movieIndexes[index].toDouble(),
           };
+          await Future.delayed(Duration(milliseconds: 10));
           // Get.back();
           homePageTabController.animateTo(0);
         },

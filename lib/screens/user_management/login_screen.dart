@@ -28,6 +28,7 @@ class _LoginFormState extends State<LoginForm> {
       if (result) {
         _formKey.currentState.reset();
         Get.back();
+        Get.back();
         homePageTabController.animateTo(0);
       }
       _isLoading.value = false;
