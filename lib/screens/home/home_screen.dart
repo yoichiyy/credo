@@ -13,6 +13,8 @@ import 'package:review_system/screens/table_of_contents/table_of_contents_screen
 import 'package:review_system/screens/user_management/settings_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:firebase_core/firebase_core.dart';
+
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -29,6 +31,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   }
 
   get() async {
+    await Firebase.initializeApp();
     prefs = await SharedPreferences.getInstance();
 
     if (SharedPrefs.isLoggedIn()) {
