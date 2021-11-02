@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:review_system/constants/color_constants.dart';
+import 'package:review_system/constants/global_constants.dart';
 import 'package:review_system/constants/string_constants.dart';
 import 'package:review_system/controller/morninig_feedback_form_controller.dart';
 import 'package:review_system/models/form_models/morning_feedback_form_model.dart';
@@ -18,18 +19,35 @@ class MorningFeedbackForm extends StatefulWidget {
 class _MorningFeedbackFormState extends State<MorningFeedbackForm> {
   final _formKey = GlobalKey<FormState>();
   ValueNotifier<bool> _isLoading = ValueNotifier<bool>(false);
-  MorningFeedbackFormData _data = new MorningFeedbackFormData();
+
+  String focus;
+  String knowledge;
+  String bridging;
+  int feeling;
+  int motivation;
 
   _handleFormSave() async {
     if (await FormUtils.getUserConfirmationOnSave()) {
       if (_formKey.currentState.validate()) {
         _formKey.currentState.save();
         _isLoading.value = true;
-        bool result = await MorningFeedbackFormController().submitForm(_data);
+        final data = FeedbackFormData(
+          email: userGloabal != null ? userGloabal.email : "",
+          section: videoIndex.value['main'].toString(),
+          video: videoIndex.value['video'].toString(),
+          type: 'morning',
+          feeling: MorningFeedbackFormFieldHintConstants.getFeelingTypes(
+              this.feeling),
+          motivation: MorningFeedbackFormFieldHintConstants.getMotivationTypes(
+              this.motivation),
+          focus: this.focus,
+          knowledge: this.knowledge,
+          bridging: this.bridging,
+        );
+        bool result = await MorningFeedbackFormController().submitForm(data);
         if (result) {
           Get.snackbar("Feedback: ", "It is collected successfully");
           _formKey.currentState.reset();
-          _data = MorningFeedbackFormData();
           FormUtils.closeKeyBoard(context);
         } else {
           Get.snackbar("Feedback: ", "Some error happened");
@@ -76,9 +94,9 @@ class _MorningFeedbackFormState extends State<MorningFeedbackForm> {
                             item),
                         title: MorningFeedbackFormFieldHintConstants
                             .getFeelingTypes(item),
-                        isSelected: this._data.feeling == item,
+                        isSelected: this.feeling == item,
                         onTap: () {
-                          this._data.feeling = item;
+                          this.feeling = item;
                           setState(() {});
                         },
                       ),
@@ -90,21 +108,21 @@ class _MorningFeedbackFormState extends State<MorningFeedbackForm> {
                 multiline: true,
                 hint: MorningFeedbackFormFieldHintConstants.focus,
                 onSaved: (String value) {
-                  this._data.focus = value.trim();
+                  this.focus = value.trim();
                 },
               ),
               customField(
                 multiline: true,
                 hint: MorningFeedbackFormFieldHintConstants.knowledge,
                 onSaved: (String value) {
-                  this._data.knowledge = value.trim();
+                  this.knowledge = value.trim();
                 },
               ),
               customField(
                 multiline: true,
                 hint: MorningFeedbackFormFieldHintConstants.bridging,
                 onSaved: (String value) {
-                  this._data.bridging = value.trim();
+                  this.bridging = value.trim();
                 },
               ),
               _buildButtonHeaders(
@@ -121,9 +139,9 @@ class _MorningFeedbackFormState extends State<MorningFeedbackForm> {
                                 item),
                         title: MorningFeedbackFormFieldHintConstants
                             .getMotivationTypes(item),
-                        isSelected: this._data.motivation == item,
+                        isSelected: this.motivation == item,
                         onTap: () {
-                          this._data.motivation = item;
+                          this.motivation = item;
                           setState(() {});
                         },
                       ),
