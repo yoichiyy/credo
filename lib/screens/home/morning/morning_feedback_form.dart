@@ -27,33 +27,31 @@ class _MorningFeedbackFormState extends State<MorningFeedbackForm> {
   int motivation;
 
   _handleFormSave() async {
-    if (await FormUtils.getUserConfirmationOnSave()) {
-      if (_formKey.currentState.validate()) {
-        _formKey.currentState.save();
-        _isLoading.value = true;
-        final data = FeedbackFormData(
-          email: userGloabal != null ? userGloabal.email : "",
-          section: videoIndex.value['main'].toString(),
-          video: videoIndex.value['video'].toString(),
-          type: 'morning',
-          feeling: MorningFeedbackFormFieldHintConstants.getFeelingTypes(
-              this.feeling),
-          motivation: MorningFeedbackFormFieldHintConstants.getMotivationTypes(
-              this.motivation),
-          focus: this.focus,
-          knowledge: this.knowledge,
-          bridging: this.bridging,
-        );
-        bool result = await MorningFeedbackFormController().submitForm(data);
-        if (result) {
-          Get.snackbar("Feedback: ", "It is collected successfully");
-          _formKey.currentState.reset();
-          FormUtils.closeKeyBoard(context);
-        } else {
-          Get.snackbar("Feedback: ", "Some error happened");
-        }
-        _isLoading.value = false;
+    if (_formKey.currentState.validate()) {
+      _formKey.currentState.save();
+      _isLoading.value = true;
+      final data = FeedbackFormData(
+        email: userGloabal != null ? userGloabal.email : "",
+        section: videoIndex.value['main'].toString(),
+        video: videoIndex.value['video'].toString(),
+        type: 'morning',
+        feeling:
+            MorningFeedbackFormFieldHintConstants.getFeelingTypes(this.feeling),
+        motivation: MorningFeedbackFormFieldHintConstants.getMotivationTypes(
+            this.motivation),
+        focus: this.focus,
+        knowledge: this.knowledge,
+        bridging: this.bridging,
+      );
+      bool result = await MorningFeedbackFormController().submitForm(data);
+      if (result) {
+        Get.snackbar("Feedback: ", "It is collected successfully");
+        _formKey.currentState.reset();
+        FormUtils.closeKeyBoard(context);
+      } else {
+        Get.snackbar("Feedback: ", "Some error happened");
       }
+      _isLoading.value = false;
     }
   }
 

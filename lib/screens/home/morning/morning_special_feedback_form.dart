@@ -25,22 +25,20 @@ class _MorningSpecialFeedbackFormState
   SpecialFeedbackFormData _data = new SpecialFeedbackFormData();
 
   _handleFormSave() async {
-    if (await FormUtils.getUserConfirmationOnSave()) {
-      if (_formKey.currentState.validate()) {
-        _formKey.currentState.save();
-        _isLoading.value = true;
-        bool result = await SpecialFeedbackFormController().submitForm(_data);
-        if (result) {
-          Get.snackbar("Feedback: ", "It is collected successfully");
-          _formKey.currentState.reset();
+    if (_formKey.currentState.validate()) {
+      _formKey.currentState.save();
+      _isLoading.value = true;
+      bool result = await SpecialFeedbackFormController().submitForm(_data);
+      if (result) {
+        Get.snackbar("Feedback: ", "It is collected successfully");
+        _formKey.currentState.reset();
 
-          _data = SpecialFeedbackFormData();
-          FormUtils.closeKeyBoard(context);
-        } else {
-          Get.snackbar("Feedback: ", "Some error happened");
-        }
-        _isLoading.value = false;
+        _data = SpecialFeedbackFormData();
+        FormUtils.closeKeyBoard(context);
+      } else {
+        Get.snackbar("Feedback: ", "Some error happened");
       }
+      _isLoading.value = false;
     }
   }
 

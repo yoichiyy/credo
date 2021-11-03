@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'package:gsheets/gsheets.dart';
 import 'package:http/http.dart' as http;
 import 'package:review_system/constants/global_constants.dart';
-
 import 'package:review_system/models/form_models/morning_feedback_form_model.dart';
 
 class MorningFeedbackFormController {
@@ -27,30 +26,20 @@ class MorningFeedbackFormController {
   final yukanSheetId = 1960848660;
 
   Future<bool> submitForm(FeedbackFormData feedbackForm) async {
-    // init GSheets
     final gsheets = GSheets(credentials);
-    // fetch spreadsheet by its id
     final ss = await gsheets.spreadsheet(fileId);
     final chokanSheet = ss.worksheetById(chokanSheetId);
-    final yukanSheet = ss.worksheetById(yukanSheetId);
 
-    print(chokanSheet.rowCount);
-    print(yukanSheet.rowCount);
+    // print(chokanSheet.rowCount);
+    // print(yukanSheet.rowCount);
+    // await chokanSheet.values.insertValue('newよ', column: 2, row: 2);
+    // print(await chokanSheet.values.value(column: 2, row: 2));
+    // final cell = await chokanSheet.cells.cell(column: 2, row: 2);
+    // print(cell.value);
+    // await cell.post('new2');
+    // print(cell.value);
+    // print(await chokanSheet.values.value(column: 2, row: 2));
 
-    await chokanSheet.values.insertValue('newよ', column: 2, row: 2);
-    print(await chokanSheet.values.value(column: 2, row: 2));
-    // get cell at 'B2' as Cell object
-    final cell = await chokanSheet.cells.cell(column: 2, row: 2);
-    // prints 'new'
-    print(cell.value);
-    // update cell at 'B2' by inserting 'new2'
-    await cell.post('new2');
-    // prints 'new2'
-    print(cell.value);
-    // also prints 'new2'
-    print(await chokanSheet.values.value(column: 2, row: 2));
-
-    // I found MAP toJson() in MorningFeedbackFormData. Trying to make an array to be inserted
     final userResponse = [
       DateTime.now().toIso8601String(),
       feedbackForm.email,
@@ -62,9 +51,6 @@ class MorningFeedbackFormController {
       feedbackForm.section,
       feedbackForm.video,
     ];
-    //I could post the sttrings above to the last row, but I could not read the actual value posted.
-    //Also there is an exception error saying ... must not be null in "morning feedback form.dart line 29"
-    // it seems _data is not passed successfully.
     return chokanSheet.values.appendRow(userResponse);
   }
 

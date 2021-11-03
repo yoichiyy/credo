@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:review_system/constants/color_constants.dart';
 import 'package:review_system/constants/string_constants.dart';
+import 'package:review_system/constants/global_constants.dart';
 import 'package:review_system/controller/evening_feedback_form_controller.dart';
 import 'package:review_system/models/form_models/evening_feedback_form_model.dart';
 import 'package:get/get.dart';
@@ -18,24 +19,37 @@ class EveningFeedbackForm extends StatefulWidget {
 class _EveningFeedbackFormState extends State<EveningFeedbackForm> {
   final _formKey = GlobalKey<FormState>();
   ValueNotifier<bool> _isLoading = ValueNotifier<bool>(false);
-  EveningFeedbackFormData _data = new EveningFeedbackFormData();
+  // EveningFeedbackFormData _data = new EveningFeedbackFormData();
+
+  String use1;
+  String use2;
+  String feedback;
+  int feeling;
 
   _handleFormSave() async {
-    if (await FormUtils.getUserConfirmationOnSave()) {
-      if (_formKey.currentState.validate()) {
-        _formKey.currentState.save();
-        _isLoading.value = true;
-        bool result = await EveningFeedbackFormController().submitForm(_data);
-        if (result) {
-          Get.snackbar("Feedback: ", "It is collected successfully");
-          _formKey.currentState.reset();
-          _data = EveningFeedbackFormData();
-          FormUtils.closeKeyBoard(context);
-        } else {
-          Get.snackbar("Feedback: ", "Some error happened");
-        }
-        _isLoading.value = false;
+    if (_formKey.currentState.validate()) {
+      _formKey.currentState.save();
+      _isLoading.value = true;
+      final data = FeedbackFormData(
+        email: userGloabal != null ? userGloabal.email : "",
+        section: videoIndex.value['main'].toString(),
+        video: videoIndex.value['video'].toString(),
+        type: 'evening',
+        feeling:
+            EveningFeedbackFormFieldHintConstants.getFeelingTypes(this.feeling),
+        use1: this.use1,
+        use2: this.use2,
+        feedback: this.feedback,
+      );
+      bool result = await EveningFeedbackFormController().submitForm(data);
+      if (result) {
+        Get.snackbar("Feedback: ", "It is collected successfully");
+        _formKey.currentState.reset();
+        FormUtils.closeKeyBoard(context);
+      } else {
+        Get.snackbar("Feedback: ", "Some error happened");
       }
+      _isLoading.value = false;
     }
   }
 
@@ -77,9 +91,9 @@ class _EveningFeedbackFormState extends State<EveningFeedbackForm> {
                             item),
                         title: EveningFeedbackFormFieldHintConstants
                             .getFeelingTypes(item),
-                        isSelected: this._data.feeling == item,
+                        isSelected: this.feeling == item,
                         onTap: () {
-                          this._data.feeling = item;
+                          this.feeling = item;
                           setState(() {});
                         },
                       ),
@@ -91,21 +105,21 @@ class _EveningFeedbackFormState extends State<EveningFeedbackForm> {
                 multiline: true,
                 hint: EveningFeedbackFormFieldHintConstants.use1,
                 onSaved: (String value) {
-                  this._data.use1 = value.trim();
+                  this.use1 = value.trim();
                 },
               ),
               customField(
                 multiline: true,
                 hint: EveningFeedbackFormFieldHintConstants.use2,
                 onSaved: (String value) {
-                  this._data.use2 = value.trim();
+                  this.use2 = value.trim();
                 },
               ),
               customField(
                 multiline: true,
                 hint: EveningFeedbackFormFieldHintConstants.feedback,
                 onSaved: (String value) {
-                  this._data.feedback = value.trim();
+                  this.feedback = value.trim();
                 },
               ),
               // _buildButtonHeaders(
