@@ -8,7 +8,5 @@ ValueNotifier<Map> videoIndex = ValueNotifier<Map>({
 
 TabController homePageTabController;
 
-User userGloabal;
-
 String sheetURL =
     "https://script.google.com/macros/s/AKfycbzRL9acmsQ1-2Dj-s6En1Bdbl-QONEvBFPz5nbXK5tN5fz00n4-ajXzwiPugFD4XTKg/exec";

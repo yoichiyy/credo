@@ -5,8 +5,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:review_system/constants/global_constants.dart';
 import 'package:review_system/constants/string_constants.dart';
-import 'package:review_system/controller/db_controller.dart';
-import 'package:review_system/controller/shared_prefs_controller.dart';
 import 'package:review_system/screens/home/evening/evening_section.dart';
 import 'package:review_system/screens/home/morning/morning_section.dart';
 import 'package:review_system/screens/table_of_contents/table_of_contents_screen.dart';
@@ -32,12 +30,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
 
   get() async {
     await Firebase.initializeApp();
-    prefs = await SharedPreferences.getInstance();
-
-    if (SharedPrefs.isLoggedIn()) {
-      userGloabal =
-          await Database.getUserDetails(userId: SharedPrefs.getUserId());
-    }
 
     setState(() {
       _isLoading = false;

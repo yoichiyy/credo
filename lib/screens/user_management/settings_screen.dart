@@ -1,7 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:review_system/constants/global_constants.dart';
 import 'package:review_system/constants/string_constants.dart';
-import 'package:review_system/controller/shared_prefs_controller.dart';
 import 'package:review_system/screens/user_management/login_screen.dart';
 import 'package:review_system/widgets/general_widgets.dart';
 
@@ -27,7 +27,7 @@ class _SettingsState extends State<Settings> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            userGloabal == null
+            FirebaseAuth.instance.currentUser == null
                 ? SettingMenuOptionButton(
                     onTap: _handleLoginButtonBPress,
                     title: SettingsPageStringConstants.loginButtonTitle,
@@ -58,13 +58,15 @@ class _SettingsState extends State<Settings> {
             SizedBox(
               height: 5,
             ),
-            Text(LoginFormStringConstants.ID + " " + userGloabal.email),
+            Text(LoginFormStringConstants.ID +
+                " " +
+                FirebaseAuth.instance.currentUser.email),
           ],
         ),
         Spacer(),
         TextButton(
-          onPressed: () {
-            SharedPrefs.markLoggedOut();
+          onPressed: () async {
+            await FirebaseAuth.instance.signOut();
             homePageTabController.animateTo(0);
           },
           child: Text(LoginFormStringConstants.logOutButtonTitle),

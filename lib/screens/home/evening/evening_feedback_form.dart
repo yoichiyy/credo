@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:review_system/constants/color_constants.dart';
 import 'package:review_system/constants/string_constants.dart';
@@ -30,8 +31,9 @@ class _EveningFeedbackFormState extends State<EveningFeedbackForm> {
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
       _isLoading.value = true;
+      final user = FirebaseAuth.instance.currentUser.email;
       final data = FeedbackFormData(
-        email: userGloabal != null ? userGloabal.email : "",
+        email: user,
         section: videoIndex.value['main'].toString(),
         video: videoIndex.value['video'].toString(),
         type: 'evening',

@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:review_system/constants/global_constants.dart';
 import 'package:review_system/constants/string_constants.dart';
 
@@ -11,7 +12,7 @@ class SpecialFeedbackFormData {
 
   Map toJson() => {
         "name": "",
-        "email": userGloabal != null ? userGloabal.email : "",
+        "email": FirebaseAuth.instance.currentUser.email,
         "section": videoIndex.value['main'].toString(),
         "video": videoIndex.value['video'].toString(),
         "type": 'furikaeri',

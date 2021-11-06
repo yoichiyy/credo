@@ -1,6 +1,4 @@
 import 'package:review_system/constants/global_constants.dart';
-import 'package:review_system/controller/db_controller.dart';
-import 'package:review_system/controller/shared_prefs_controller.dart';
 import 'package:review_system/models/form_models/login_form_model.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:firebase_core/firebase_core.dart';
@@ -34,8 +32,6 @@ class LoginFormController {
           password: _loginForm.password,
         ));
         Get.snackbar("Login", "Logged In Succesfully");
-        userGloabal = await Database.getUserDetails(userId: userCred.user.uid);
-        SharedPrefs.markLoggeddIn(user: userGloabal);
         return true;
       } catch (e) {
         switch (e.code) {
@@ -64,10 +60,6 @@ class LoginFormController {
           password: _loginForm.password,
         ));
         Get.snackbar("Register", "Registered Succesfully");
-        //store in firestore
-        userGloabal = User(email: _loginForm.email, userId: userCred.user.uid);
-        await Database.addUser(user: userGloabal);
-        SharedPrefs.markLoggeddIn(user: userGloabal);
         return true;
       } catch (e) {
         Get.snackbar("Register", "Some error happened: ${e.code}");
