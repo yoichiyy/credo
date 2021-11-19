@@ -4,8 +4,8 @@ import 'package:review_system/constants/color_constants.dart';
 import 'package:review_system/constants/global_constants.dart';
 import 'package:review_system/constants/string_constants.dart';
 import 'package:review_system/controller/morninig_feedback_form_controller.dart';
-import 'package:review_system/models/form_models/morning_feedback_form_model.dart';
 import 'package:get/get.dart';
+import 'package:review_system/models/form_models/feedback_form.dart';
 import 'package:review_system/utils/form_utils.dart';
 import 'package:review_system/widgets/forms/form_buttons.dart';
 import 'package:review_system/widgets/forms/form_fields.dart';
@@ -32,7 +32,7 @@ class _MorningFeedbackFormState extends State<MorningFeedbackForm> {
       _formKey.currentState.save();
       _isLoading.value = true;
       final user = FirebaseAuth.instance.currentUser.email;
-      final data = FeedbackFormData(
+      final data = FeedbackForm(
         email: user,
         section: videoIndex.value['main'].toString(),
         video: videoIndex.value['video'].toString(),
@@ -44,6 +44,8 @@ class _MorningFeedbackFormState extends State<MorningFeedbackForm> {
         focus: this.focus,
         knowledge: this.knowledge,
         bridging: this.bridging,
+        isMorning: true,
+        name: '',
       );
       bool result = await MorningFeedbackFormController().submitForm(data);
       if (result) {

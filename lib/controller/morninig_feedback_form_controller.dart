@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:gsheets/gsheets.dart';
 import 'package:http/http.dart' as http;
 import 'package:review_system/constants/global_constants.dart';
-import 'package:review_system/models/form_models/morning_feedback_form_model.dart';
+import 'package:review_system/models/form_models/feedback_form.dart';
 
 class MorningFeedbackFormController {
   String _feedbackFormAPIURL = sheetURL;
@@ -25,7 +25,7 @@ class MorningFeedbackFormController {
   final chokanSheetId = 0;
   final yukanSheetId = 1960848660;
 
-  Future<bool> submitForm(FeedbackFormData feedbackForm) async {
+  Future<bool> submitForm(FeedbackForm feedbackForm) async {
     final gsheets = GSheets(credentials);
     final ss = await gsheets.spreadsheet(fileId);
     final chokanSheet = ss.worksheetById(chokanSheetId);

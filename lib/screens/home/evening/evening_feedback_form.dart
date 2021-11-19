@@ -4,11 +4,11 @@ import 'package:review_system/constants/color_constants.dart';
 import 'package:review_system/constants/string_constants.dart';
 import 'package:review_system/constants/global_constants.dart';
 import 'package:review_system/controller/evening_feedback_form_controller.dart';
-import 'package:review_system/models/form_models/evening_feedback_form_model.dart';
 import 'package:get/get.dart';
 import 'package:review_system/utils/form_utils.dart';
 import 'package:review_system/widgets/forms/form_buttons.dart';
 import 'package:review_system/widgets/forms/form_fields.dart';
+import 'package:review_system/models/form_models/feedback_form.dart';
 
 class EveningFeedbackForm extends StatefulWidget {
   EveningFeedbackForm({Key key}) : super(key: key);
@@ -32,7 +32,9 @@ class _EveningFeedbackFormState extends State<EveningFeedbackForm> {
       _formKey.currentState.save();
       _isLoading.value = true;
       final user = FirebaseAuth.instance.currentUser.email;
-      final data = FeedbackFormData(
+      final data = FeedbackForm(
+        name: "",
+        isMorning: false,
         email: user,
         section: videoIndex.value['main'].toString(),
         video: videoIndex.value['video'].toString(),
