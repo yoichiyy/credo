@@ -1,10 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:review_system/constants/color_constants.dart';
+import 'package:review_system/constants/global_constants.dart';
 import 'package:review_system/constants/string_constants.dart';
-import 'package:review_system/controller/morninig_feedback_form_controller.dart';
 import 'package:review_system/controller/special_feedback_form_controller.dart';
 import 'package:get/get.dart';
-import 'package:review_system/models/form_models/special_feedback_form_model.dart';
+import 'package:review_system/models/form_models/feedback_form.dart';
 import 'package:review_system/utils/form_utils.dart';
 import 'package:review_system/widgets/forms/form_buttons.dart';
 import 'package:review_system/widgets/forms/form_fields.dart';
@@ -21,18 +22,40 @@ class _MorningSpecialFeedbackFormState
     extends State<MorningSpecialFeedbackForm> {
   final _formKey = GlobalKey<FormState>();
   ValueNotifier<bool> _isLoading = ValueNotifier<bool>(false);
-  SpecialFeedbackFormData _data = new SpecialFeedbackFormData();
+
+  int feeling;
+  String knowledge;
+  String nextChallenge;
+  String inspiration;
+
+  int motivation;
 
   _handleFormSave() async {
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
       _isLoading.value = true;
-      bool result = await SpecialFeedbackFormController().submitForm(_data);
+
+      final user = FirebaseAuth.instance.currentUser.email;
+      final data = FeedbackForm(
+        email: user,
+        section: videoIndex.value['main'].toString(),
+        video: videoIndex.value['video'].toString(),
+        type: 'morning',
+        feeling:
+            MorningFeedbackFormFieldHintConstants.getFeelingTypes(this.feeling),
+        nextChallenge: this.nextChallenge,
+        knowledge: this.knowledge,
+        inspiration: this.inspiration,
+        isMorning: true,
+        isSpecial: true,
+        name: '',
+      );
+
+      bool result = await SpecialFeedbackFormController().submitForm(data);
       if (result) {
         Get.snackbar("Feedback: ", "It is collected successfully");
         _formKey.currentState.reset();
 
-        _data = SpecialFeedbackFormData();
         FormUtils.closeKeyBoard(context);
       } else {
         Get.snackbar("Feedback: ", "Some error happened");
@@ -78,9 +101,9 @@ class _MorningSpecialFeedbackFormState
                             item),
                         title: MorningSpecialFeedbackFormFieldHintConstants
                             .getFeelingTypes(item),
-                        isSelected: this._data.feeling == item,
+                        isSelected: this.feeling == item,
                         onTap: () {
-                          this._data.feeling = item;
+                          this.feeling = item;
                           setState(() {});
                         },
                       ),
@@ -92,7 +115,7 @@ class _MorningSpecialFeedbackFormState
                 multiline: true,
                 hint: MorningSpecialFeedbackFormFieldHintConstants.inspiration,
                 onSaved: (String value) {
-                  this._data.inspiration = value.trim();
+                  this.inspiration = value.trim();
                 },
               ),
               customField(
@@ -100,14 +123,14 @@ class _MorningSpecialFeedbackFormState
                 hint:
                     MorningSpecialFeedbackFormFieldHintConstants.nextChallenge,
                 onSaved: (String value) {
-                  this._data.nextChallenge = value.trim();
+                  this.nextChallenge = value.trim();
                 },
               ),
               customField(
                 multiline: true,
                 hint: MorningSpecialFeedbackFormFieldHintConstants.knowledge,
                 onSaved: (String value) {
-                  this._data.knowledge = value.trim();
+                  this.knowledge = value.trim();
                 },
               ),
 

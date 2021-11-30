@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 class FeedbackForm {
   final bool isMorning;
+  final bool isSpecial;
   final String name;
   final String email;
   final String type;
@@ -22,8 +23,15 @@ class FeedbackForm {
   final String bridging;
   final String motivation;
 
+  ///Special
+  // final int feeling;
+  // final String knowledge;
+  final String nextChallenge;
+  final String inspiration;
+
   FeedbackForm(
       {@required this.isMorning,
+      this.isSpecial = false,
       @required this.name,
       @required this.email,
       @required this.type,
@@ -36,11 +44,14 @@ class FeedbackForm {
       this.focus,
       this.knowledge,
       this.bridging,
-      this.motivation});
+      this.motivation,
+      this.nextChallenge,
+      this.inspiration});
 
   Map<String, dynamic> toMap() {
     return {
       'isMorning': isMorning,
+      'isSpecial': isSpecial,
       'name': name,
       'email': email,
       'type': type,
@@ -54,12 +65,15 @@ class FeedbackForm {
       'knowledge': knowledge,
       'bridging': bridging,
       'motivation': motivation,
+      'nextChallenge': nextChallenge,
+      'inspiration': inspiration,
     };
   }
 
   factory FeedbackForm.fromMap(Map<String, dynamic> map) {
     return FeedbackForm(
       isMorning: map['isMorning'],
+      isSpecial: map['isSpecial'],
       name: map['name'],
       email: map['email'],
       type: map['type'],
@@ -73,6 +87,8 @@ class FeedbackForm {
       knowledge: map['knowledge'],
       bridging: map['bridging'],
       motivation: map['motivation'],
+      nextChallenge: map['nextChallenge'],
+      inspiration: map['inspiration'],
     );
   }
 
